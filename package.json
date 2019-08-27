@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/pappkasse/Scrapcad/issues"
   },
-  "homepage": "https://github.com/pappkasse/Scrapcad#readme"
+  "homepage": "https://github.com/pappkasse/Scrapcad#readme",
+  "devDependencies": {
+    "electron": "^6.0.4"
+  },
+  "dependencies": {
+    "mouse-wheel": "^1.2.0"
+  }
 }
