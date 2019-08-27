@@ -9,20 +9,20 @@ let vueMethods = importFunctions();
 let app = new Vue({
     el: "#wrapper",
     data: {
-        tileCanvas: null
+        drawing: null
     },
     watch: {
-        'tileCanvas': {
+        'drawing': {
             handler: function() {
-                this.tileCanvas.draw();
+                this.drawing.draw();
             }, deep: true
         }
     },
     mounted() {
-        this.tileCanvas = new TileCanvas(this.$refs.mainCanvas);
+        this.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.createLayer();
-        this.tileCanvas.setZoom(50);
-        this.tileCanvas.draw();
+        this.drawing.setZoom(50);
+        this.drawing.draw();
     },
     methods: vueMethods
 })
@@ -40,11 +40,11 @@ function importFunctions() {
 }
 
 mouseWheel(app.$refs.mainCanvas.parentNode, (dx, dy) => {
-    if (dy > 0 && app.tileCanvas.zoom > 0)
-        app.tileCanvas.setZoom(app.tileCanvas.zoom - 2);
+    if (dy > 0 && app.drawing.zoom > 0)
+        app.drawing.setZoom(app.drawing.zoom - 2);
 
     if (dy < 0)
-        app.tileCanvas.setZoom(app.tileCanvas.zoom + 2);
+        app.drawing.setZoom(app.drawing.zoom + 2);
 
-    app.tileCanvas.draw();
+    app.drawing.draw();
 }, true);
