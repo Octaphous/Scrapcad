@@ -15,6 +15,8 @@ class TileCanvas {
         this.setZoom(20);
     }
     setZoom(zoom) {
+        if (zoom < 1) zoom = 1;
+        
         this.canvas.zoom = zoom;
 
         // Set width and height of canvas
