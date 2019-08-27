@@ -1,4 +1,7 @@
-//Scrapcad
+//TODO:
+//Resize layers
+//Change layer order
+
 class TileCanvas {
     constructor(canvas) {
         this.canvas = canvas;
@@ -15,8 +18,8 @@ class TileCanvas {
         this.canvas.zoom = zoom;
 
         // Set width and height of canvas
-        if (this.layers.selected())
-            this.layers.select(this.layers.selected());
+        if (this.layers.selected)
+            this.layers.select(this.layers.selected);
     }
     draw() {
         //Clear
@@ -26,12 +29,12 @@ class TileCanvas {
         this.layers.draw(this.context, this.canvas.zoom);
 
         //Draw Grid
-        if (this.drawGrid && this.layers.selected()) {
+        if (this.drawGrid && this.layers.selected) {
             let strokeWidth = .5;
             let zl = this.canvas.zoom;
 
-            for (let x = 0; x < this.layers.selected().width(); x++) {
-                for (let y = 0; y < this.layers.selected().height(); y++) {
+            for (let x = 0; x < this.layers.selected.width; x++) {
+                for (let y = 0; y < this.layers.selected.height; y++) {
                     this.context.strokeStyle = "#b1b1b1";
                     this.context.lineWidth = strokeWidth;
                     this.context.strokeRect((x * zl), (y * zl), zl, zl);
@@ -50,7 +53,7 @@ class LayerCollection {
     add(layer) {
         layer._z = this.layers.length;
 
-        if (!this.getLayerByZ(layer.z())) {
+        if (!this.getLayerByZ(layer.z)) {
             this.layers.push(layer);
             return layer;
         }
@@ -61,11 +64,11 @@ class LayerCollection {
         if (layerIndex != -1)
             this.layers.splice(layerIndex, 1);
     }
-    selected() {
+    get selected() {
         return this._selectedLayer;
     }
     getLayerByZ(z) {
-        return this.layers.find(layer => layer.z() == z);
+        return this.layers.find(layer => layer.z == z);
     }
     select(layer) {
         let layerIndex = this.layers.indexOf(layer);
@@ -73,8 +76,8 @@ class LayerCollection {
 
         this._selectedLayer = this.layers[layerIndex];
 
-        this.canvas.width = this._selectedLayer.width() * this.canvas.zoom;
-        this.canvas.height = this._selectedLayer.height() * this.canvas.zoom;
+        this.canvas.width = this._selectedLayer.width * this.canvas.zoom;
+        this.canvas.height = this._selectedLayer.height * this.canvas.zoom;
     }
     draw(context, zoom) {
         if (this._selectedLayer)
@@ -92,21 +95,21 @@ class Layer {
 
         this._selected = [];
     }
-    z() {
+    get z() {
         return this._z;
     }
-    width() {
+    get width() {
         return this._width;
     }
-    height() {
+    get height() {
         return this._height;
     }
     add(tile, replace = false) {
-        if (tile.x() >= this._width || tile.y() >= this._height) return;
+        if (tile.x >= this._width || tile.y >= this._height) return;
 
-        if (this.tileAt(tile.x(), tile.y()))
+        if (this.tileAt(tile.x, tile.y))
             if (replace)
-                this.removeAt(tile.x(), tile.y());
+                this.removeAt(tile.x, tile.y);
             else 
                 return;
 
@@ -124,25 +127,25 @@ class Layer {
         this.remove(this.tileAt(x, y));
     }
     tileAt(x, y) {
-        return this.tiles.find(tile => tile.x() == x && tile.y() == y);
+        return this.tiles.find(tile => tile.x == x && tile.y == y);
     }
-    selectedTiles() {
+    get selectedTiles() {
         return this._selected;
     }
     selectAt(x, y) {
         if (x >= this._width || y >= this._height) return;
-        if (this._selected.find(tile => tile.x() == x && tile.y() == y)) return;
+        if (this._selected.find(tile => tile.x == x && tile.y == y)) return;
 
         this._selected.push(new selectionTile(x, y));
     }
     deselectAt(x, y) {
-        let tileToDeselect = this._selected.find(tile => tile.x() == x && tile.y() == y);
+        let tileToDeselect = this._selected.find(tile => tile.x == x && tile.y == y);
         if (!tileToDeselect) return;
 
         this._selected.splice(this._selected.indexOf(tileToDeselect), 1);
     }
     selectionAt(x, y) {
-        return this._selected.find(tile => tile.x() == x && tile.y() == y)
+        return this._selected.find(tile => tile.x == x && tile.y == y)
     }
     selectAll() {
         for (let x = 0; x < this._width; x++) {
@@ -174,16 +177,16 @@ class Tile {
         this.color = color;
         this._layer = null;
     }
-    layer() {
+    get layer() {
         return this._layer;
     }
-    x() {
+    get x() {
         return this._x;
     }
-    y() {
+    get y() {
         return this._y;
     }
-    isSelected() {
+    get isSelected() {
         if (!this._layer) return;
         return this._layer.selectionAt(this._x, this._y) ? true : false;
     }
@@ -210,10 +213,10 @@ class selectionTile {
         this._x = x;
         this._y = y;
     }
-    x() {
+    get x() {
         return this._x;
     }
-    y() {
+    get y() {
         return this._y;
     }
     draw(context, zoom) {
