@@ -288,6 +288,7 @@ html, body, #wrapper {
 #wrapper > main .mantra-tab-container {
   display: -ms-grid;
   display: grid;
+  height: 100%;
   -ms-grid-rows: auto 1fr;
       grid-template-rows: auto 1fr;
 }
@@ -300,7 +301,7 @@ html, body, #wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #232323;
   padding-top: .5rem;
 }
 
@@ -308,18 +309,82 @@ html, body, #wrapper {
   border: none;
   padding: .2rem .7rem;
   font-size: .7em;
-  background: #c8e3fd;
-  color: black;
+  background: #323232;
+  color: #aaaaaa;
   border-radius: 0 .5rem 0 0;
 }
 
 #wrapper > main .mantra-tab-container header button:hover {
-  background: #3596f7;
+  background: #0a7def;
   color: white;
 }
 
 #wrapper > main .mantra-tab-container header button:active, #wrapper > main .mantra-tab-container header button.mantra-tab-selected {
-  background: #0a7def;
+  background: #0757a6;
   color: white;
+}
+
+#panels {
+  background: #191919;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 15rem;
+      grid-template-rows: 1fr 15rem;
+  -ms-grid-columns: auto 1fr 20rem;
+      grid-template-columns: auto 1fr 20rem;
+      grid-template-areas: "tools editor properties" "tools explorer explorer";
+}
+
+#panels > * {
+  border: 1px solid #111111;
+}
+
+#panels #editor {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: editor;
+  overflow: hidden;
+}
+
+#panels #editor #view-2d {
+  background-image: url("../images/TransparentTile.png");
+  background-size: .7rem .7rem;
+  background-repeat: repeat;
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#panels #editor #view-2d #main-canvas {
+  border: 1px solid #0a7def;
+}
+
+#panels #explorer {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: explorer;
+}
+
+#panels #properties {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: properties;
+}
+
+#panels #tools {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: tools;
 }
 /*# sourceMappingURL=mantra_d.css.map */

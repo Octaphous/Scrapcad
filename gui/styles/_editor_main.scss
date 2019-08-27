@@ -1,0 +1,19 @@
+#panels {
+    background: rgb(25, 25, 25);
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 15rem;
+    grid-template-columns: auto 1fr 20rem;
+    grid-template-areas: 
+    "tools editor properties"
+    "tools explorer explorer";
+
+    > * {
+        border: 1px solid rgb(17, 17, 17);
+    }
+
+    @import 'panels/editor';
+    @import 'panels/explorer';
+    @import 'panels/properties';
+    @import 'panels/tools';
+}

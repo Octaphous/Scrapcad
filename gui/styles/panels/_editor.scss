@@ -1,0 +1,19 @@
+#editor {
+    grid-area: editor;
+    overflow: hidden;
+    #view-2d {
+        background-image: url("../images/TransparentTile.png");
+        background-size: .7rem .7rem;
+        background-repeat: repeat;
+        height: 100%;
+
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #main-canvas {
+            border: 1px solid $theme-color;
+        }
+    }
+}

@@ -189,25 +189,26 @@ html, body, #wrapper {
         overflow: hidden;
         .mantra-tab-container {
             display: grid;
+            height: 100%;
             grid-template-rows:  auto 1fr;
             header {
                 display: flex;
                 flex-direction: row;
-                border-bottom: 1px solid rgb(216, 216, 216);
+                border-bottom: 1px solid rgb(35, 35, 35);
                 padding-top: .5rem;
                 button {
                     border: none;
                     padding: .2rem .7rem;
                     font-size: .7em;
-                    background: lighten($theme-color, 40%);
-                    color: rgb(0, 0, 0);
+                    background: rgb(50, 50, 50);
+                    color: rgb(170, 170, 170);
                     border-radius: 0 .5rem 0 0;
                     &:hover {
-                        background: lighten($theme-color, 10%);
+                        background: $theme-color;
                         color: white;
                     }
                     &:active, &.mantra-tab-selected {
-                        background: $theme-color;
+                        background: darken($theme-color, 15%);
                         color: white;
                     }
                 }
