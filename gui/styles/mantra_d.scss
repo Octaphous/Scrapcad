@@ -1,0 +1,219 @@
+$theme-color: #0a7def;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    font-display: 400;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+html, body, #wrapper {
+    height: 100vh;
+    overflow: hidden;
+}
+#wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    #mantra-app-header {
+        #mantra-title-bar {
+            background: darken($theme-color, 10%);
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            align-items: center;
+            p {
+                color: rgb(255, 255, 255);
+                font-size: .8em;
+                padding-left: .8rem;
+                height: 90%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                -webkit-app-region: drag;
+            }
+            button {
+                border: none;
+                background: none;
+                padding: .5rem 1rem;
+                img {
+                    width: .7rem;
+                    height: .7rem;
+                }
+                &:hover {
+                    background: darken($theme-color, 15%);
+                }
+                &:active {
+                    background: darken($theme-color, 20%);
+                }
+            }
+        }
+        #mantra-header-bar {
+            background: $theme-color;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 0 1rem;
+
+            $icon-size: 2rem;
+            #mantra-app-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: $icon-size;
+                    height: $icon-size;
+                }
+            }
+            #mantra-app-properties {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                flex-wrap: wrap;
+                .mantra-property-category {
+                    margin: .5rem 0;
+                    border-right: 1px solid rgba(255, 255, 255, 0.2);
+                    p {
+                        color: white;
+                        font-size: .7em;
+                        margin-bottom: .5rem;
+                        font-weight: 700;
+                    }
+                    display: grid;
+                    grid-template-rows: auto 1fr;
+                    padding-right: .5rem;
+                    margin-right: .5rem;
+                    div {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+                .mantra-property-divider {
+                    border-right: 1px solid rgba(255, 255, 255, 0.5);
+                    margin: 0 .5rem;
+                }
+                input, button {
+                    border: none;
+                    padding: .2rem .4rem;
+                    background: rgb(230, 230, 230);
+                    font-size: .75em;
+                    color: rgb(255, 255, 255);
+                    background: $theme-color;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    transition: border-color .5s ease;
+                    &:hover {
+                        background: darken($theme-color, 10%);
+                        border-color: transparent;
+                    }
+                    &:active {
+                        background: darken($theme-color, 20%);
+                        border-color: transparent;
+                    }
+                    &::placeholder {
+                        color: white;
+                        opacity: .7;
+                    }
+                }
+                input {
+                    width: 8rem;
+                    &:focus {
+                        background: darken($theme-color, 20%);
+                        border-color: transparent;
+                    }
+                }
+                button {
+                    cursor: pointer;
+                }
+                padding: 0 1rem;
+            }
+            #mantra-menu-section {
+                button {
+                    background: none;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    width: 2rem;
+                    height: 2rem;
+
+                    &:hover {
+                        background: darken($theme-color, 10%);
+                    }
+                    &:active {
+                        background: darken($theme-color, 20%);
+                    }
+
+                    img {
+                        width: 1.1rem;
+                        height: 1.1rem;
+                    }
+                }
+                #mantra-menu {
+                    background: rgb(255, 255, 255);
+                    border: 1px solid lighten($theme-color, 30%);
+                    position: absolute;
+                    right: .5rem;
+                    margin-top: .2rem;
+                    overflow: auto;
+                    display: flex;
+                    max-height: 70vh;
+                    width: 20rem;
+                    flex-direction: column;
+                    display: none;
+                    button {
+                        color: rgb(41, 41, 41);
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        padding: .5rem .7rem;
+                        min-height: max-content;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        &:hover {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > main {
+        background: rgb(20, 20, 20);
+        overflow: hidden;
+        .mantra-tab-container {
+            display: grid;
+            grid-template-rows:  auto 1fr;
+            header {
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid rgb(216, 216, 216);
+                padding-top: .5rem;
+                button {
+                    border: none;
+                    padding: .2rem .7rem;
+                    font-size: .7em;
+                    background: lighten($theme-color, 40%);
+                    color: rgb(0, 0, 0);
+                    border-radius: 0 .5rem 0 0;
+                    &:hover {
+                        background: lighten($theme-color, 10%);
+                        color: white;
+                    }
+                    &:active, &.mantra-tab-selected {
+                        background: $theme-color;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import 'editor_main';

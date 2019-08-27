@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-display: 400;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html, body, #wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar {
+  background: #0863be;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto auto auto;
+      grid-template-columns: 1fr auto auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar p {
+  color: white;
+  font-size: .8em;
+  padding-left: .8rem;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-app-region: drag;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar button {
+  border: none;
+  background: none;
+  padding: .5rem 1rem;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar button img {
+  width: .7rem;
+  height: .7rem;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar button:hover {
+  background: #0757a6;
+}
+
+#wrapper #mantra-app-header #mantra-title-bar button:active {
+  background: #064a8d;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar {
+  background: #0a7def;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties .mantra-property-category {
+  margin: .5rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+  padding-right: .5rem;
+  margin-right: .5rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties .mantra-property-category p {
+  color: white;
+  font-size: .7em;
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties .mantra-property-category div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties .mantra-property-divider {
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 0 .5rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button {
+  border: none;
+  padding: .2rem .4rem;
+  background: #e6e6e6;
+  font-size: .75em;
+  color: white;
+  background: #0a7def;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-transition: border-color .5s ease;
+  transition: border-color .5s ease;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:hover, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:hover {
+  background: #0863be;
+  border-color: transparent;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:active, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:active {
+  background: #064a8d;
+  border-color: transparent;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input::-webkit-input-placeholder, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button::-webkit-input-placeholder {
+  color: white;
+  opacity: .7;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:-ms-input-placeholder, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:-ms-input-placeholder {
+  color: white;
+  opacity: .7;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input::-ms-input-placeholder, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button::-ms-input-placeholder {
+  color: white;
+  opacity: .7;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input::placeholder, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button::placeholder {
+  color: white;
+  opacity: .7;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input {
+  width: 8rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:focus {
+  background: #064a8d;
+  border-color: transparent;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button {
+  cursor: pointer;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button {
+  background: none;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:hover {
+  background: #0863be;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:active {
+  background: #064a8d;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu {
+  background: white;
+  border: 1px solid #97c9fb;
+  position: absolute;
+  right: .5rem;
+  margin-top: .2rem;
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 70vh;
+  width: 20rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: none;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu button {
+  color: #292929;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: .5rem .7rem;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu button:hover {
+  color: white;
+}
+
+#wrapper > main {
+  background: #141414;
+  overflow: hidden;
+}
+
+#wrapper > main .mantra-tab-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+}
+
+#wrapper > main .mantra-tab-container header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid #d8d8d8;
+  padding-top: .5rem;
+}
+
+#wrapper > main .mantra-tab-container header button {
+  border: none;
+  padding: .2rem .7rem;
+  font-size: .7em;
+  background: #c8e3fd;
+  color: black;
+  border-radius: 0 .5rem 0 0;
+}
+
+#wrapper > main .mantra-tab-container header button:hover {
+  background: #3596f7;
+  color: white;
+}
+
+#wrapper > main .mantra-tab-container header button:active, #wrapper > main .mantra-tab-container header button.mantra-tab-selected {
+  background: #0a7def;
+  color: white;
+}
+/*# sourceMappingURL=mantra_d.css.map */

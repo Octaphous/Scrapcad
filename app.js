@@ -12,7 +12,7 @@ function createWindow () {
         }
     });
 
-    win.loadFile("frontend/html/editor.html");
+    win.loadFile("gui/html/editor.html");
     //win.setMenu(null);
 }
 
