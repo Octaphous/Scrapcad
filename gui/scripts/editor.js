@@ -11,6 +11,13 @@ let app = new Vue({
     data: {
         tileCanvas: null
     },
+    watch: {
+        'tileCanvas': {
+            handler: function() {
+                this.tileCanvas.draw();
+            }, deep: true
+        }
+    },
     mounted() {
         this.tileCanvas = new TileCanvas(this.$refs.mainCanvas);
         this.createLayer();
@@ -33,9 +40,11 @@ function importFunctions() {
 }
 
 mouseWheel(app.$refs.mainCanvas.parentNode, (dx, dy) => {
-    if (dy > 0 && app.zoomLevel > 0)
-        app.zoomLevel--;
+    if (dy > 0 && app.tileCanvas.zoom > 0)
+        app.tileCanvas.setZoom(app.tileCanvas.zoom - 2);
 
     if (dy < 0)
-        app.zoomLevel++;
+        app.tileCanvas.setZoom(app.tileCanvas.zoom + 2);
+
+    app.tileCanvas.draw();
 }, true);

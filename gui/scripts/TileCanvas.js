@@ -21,6 +21,9 @@ class TileCanvas {
         if (this.layers.selected)
             this.layers.select(this.layers.selected);
     }
+    get zoom() {
+        return this.canvas.zoom;
+    }
     draw() {
         //Clear
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
