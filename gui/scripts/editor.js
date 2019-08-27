@@ -1,6 +1,7 @@
 const electron = require("electron");
 const fs = require("fs");
 const mouseWheel = require("mouse-wheel");
+const tools = require("../scripts/tools.json");
 
 const canvas = document.querySelector("#main-canvas");
 
@@ -9,7 +10,11 @@ let vueMethods = importFunctions();
 let app = new Vue({
     el: "#wrapper",
     data: {
-        drawing: null
+        drawing: null,
+        tools: {
+            list: tools,
+            selected: tools[0]
+        }
     },
     watch: {
         'drawing': {

@@ -1,6 +1,7 @@
 //TODO:
 //Resize layers
 //Change layer order
+//Invert Selection
 
 class TileCanvas {
     constructor(canvas) {

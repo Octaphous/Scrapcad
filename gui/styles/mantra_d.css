@@ -302,16 +302,14 @@ html, body, #wrapper {
       -ms-flex-direction: row;
           flex-direction: row;
   border-bottom: 1px solid #232323;
-  padding-top: .5rem;
 }
 
 #wrapper > main .mantra-tab-container header button {
   border: none;
-  padding: .2rem .7rem;
+  padding: .3rem .7rem;
   font-size: .7em;
-  background: #323232;
+  background: transparent;
   color: #aaaaaa;
-  border-radius: 0 .5rem 0 0;
 }
 
 #wrapper > main .mantra-tab-container header button:hover {
@@ -386,5 +384,95 @@ html, body, #wrapper {
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: tools;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .4rem;
+}
+
+#panels #tools button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: .2rem;
+  margin-bottom: .4rem;
+}
+
+#panels #tools button:hover {
+  background: #0a7def;
+}
+
+#panels #tools button:hover p {
+  visibility: visible;
+  opacity: 1;
+}
+
+#panels #tools button:active {
+  background: #064a8d;
+}
+
+#panels #tools button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#panels #tools button p {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 3.5rem;
+  background: #0a7def;
+  color: #ffffff;
+  padding: .5rem .8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .8rem;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+#panels #tools button p::before {
+  content: "";
+  background-image: url("../images/tooltip-arrow.svg");
+  background-size: .5rem .5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: .5rem;
+  height: .5rem;
+  margin-right: .5rem;
+}
+
+#panels #tools .action-tool {
+  background: #0a7def;
+}
+
+#panels #tools .selection-tool.tool-selected {
+  background: #557da4;
 }
 /*# sourceMappingURL=mantra_d.css.map */

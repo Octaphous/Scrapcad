@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Single Selection", 
+        "icon": "../images/single-selection-icon.svg"
+    }, 
+    {
+        "name": "Color Selection", 
+        "icon": "../images/color-selection-icon.svg"
+    }
+]

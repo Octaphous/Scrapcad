@@ -49,9 +49,14 @@
             <main>
                 <div id="panels">
                     <div id="tools">
-                        
-                        
-
+                        <button @click="selectAll" class="action-tool">
+                            <img src="../images/select-all-icon.svg">
+                            <p>Select All</p>
+                        </button>
+                        <button v-for="tool in tools.list" @click="tools.selected = tool" :class="{'selection-tool': true, 'tool-selected': tools.selected.name == tool.name}">
+                            <img :src="tool.icon">
+                            <p>{{tool.name}}</p>
+                        </button>
                     </div>
                     <div id="editor">
                         <div class="mantra-tab-container">
@@ -60,7 +65,7 @@
                                 <button>3D Preview</button>
                             </header>
                             <div id="view-2d">
-                                <canvas ref="mainCanvas" id="main-canvas"></canvas>
+                                <canvas @mousedown="canvasClickHandler" ref="mainCanvas" id="main-canvas"></canvas>
                             </div>
                         </div>
                     </div>

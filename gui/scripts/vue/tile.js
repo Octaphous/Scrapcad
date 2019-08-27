@@ -5,3 +5,6 @@ module.exports.toggleSelect = function(x, y){
     else
         selectedLayer.selectAt(x, y);
 }
+module.exports.selectAll = function() {
+    this.drawing.layers.selected.selectAll();
+}

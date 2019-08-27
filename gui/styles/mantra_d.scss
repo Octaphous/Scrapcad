@@ -195,14 +195,12 @@ html, body, #wrapper {
                 display: flex;
                 flex-direction: row;
                 border-bottom: 1px solid rgb(35, 35, 35);
-                padding-top: .5rem;
                 button {
                     border: none;
-                    padding: .2rem .7rem;
+                    padding: .3rem .7rem;
                     font-size: .7em;
-                    background: rgb(50, 50, 50);
+                    background: transparent;
                     color: rgb(170, 170, 170);
-                    border-radius: 0 .5rem 0 0;
                     &:hover {
                         background: $theme-color;
                         color: white;
