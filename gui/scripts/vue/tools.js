@@ -9,7 +9,7 @@ module.exports.runTool = function(tool, x, y) {
 }
 
 module.exports.tool_singleSelection = function(x, y) {
-    this.toggleSelectTile(x, y);
+    this.drawing.layers.selected.invertSelection(x, y);
 }
 
 module.exports.tool_colorSelection = function(x, y, deselect) {

@@ -46,8 +46,8 @@
                             <p>Selection ({{drawing.layers.selected.selectedTiles.length}})</p>
                             <div>
                                 <button @click="fillTiles">Fill tiles (Debug)</button>
-                                <button @click="invertTileSelection">Invert</button>
-                                <button @click="drawing.layers.selected.deselectAll();">Deselect</button>
+                                <button @click="drawing.layers.selected.invertAll()">Invert</button>
+                                <button @click="drawing.layers.selected.deselectAll()">Deselect</button>
                                 <div class="mantra-property-divider"></div>
                                 <button @click="deleteSelectedTiles">Delete Tiles</button>
                             </div>

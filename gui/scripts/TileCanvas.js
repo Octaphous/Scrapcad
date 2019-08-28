@@ -1,7 +1,6 @@
 //TODO:
 //Resize layers
 //Change layer order
-//Invert Selection
 
 class TileCanvas {
     constructor(canvas) {
@@ -162,6 +161,21 @@ class Layer {
     }
     deselectAll() {
         this._selected = [];
+    }
+    invertAll() {
+        for (let x = 0; x < this._width; x++) {
+            for (let y = 0; y < this._height; y++) {
+                this.invertSelection(x, y);
+            }
+        }
+    }
+    invertSelection(x, y) {
+        if (x != undefined && y != undefined) {
+            if (!this.selectionAt(x, y))
+                this.selectAt(x, y);
+            else
+                this.deselectAt(x, y);
+        }
     }
     draw(context, zoom) {
         //Draw Tiles
