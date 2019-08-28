@@ -35,7 +35,7 @@ let app = new Vue({
 })
 
 mouseWheel(app.$refs.mainCanvas.parentNode, (dx, dy) => {
-    if (dy > 0 && app.drawing.zoom > 0)
+    if (dy > 0 && app.project.drawing.zoom > 0)
         app.zoom(-2);
 
     if (dy < 0)
