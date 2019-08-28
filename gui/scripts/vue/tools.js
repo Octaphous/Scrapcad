@@ -2,18 +2,18 @@ module.exports.runTool = function(tool, x, y) {
     let functionName = tool.name.replace(" ", "");
     functionName = "tool_" + functionName.charAt(0).toLowerCase() + functionName.slice(1);
 
-    let deselect = this.drawing.layers.selected.selectionAt(x, y) == undefined ? false : true;
+    let deselect = this.project.drawing.layers.selected.selectionAt(x, y) == undefined ? false : true;
 
     if (this[functionName])
         this[functionName](x, y, deselect);
 }
 
 module.exports.tool_singleSelection = function(x, y) {
-    this.drawing.layers.selected.invertSelection(x, y);
+    this.project.drawing.layers.selected.invertSelection(x, y);
 }
 
 module.exports.tool_colorSelection = function(x, y, deselect) {
-    let selectedLayer = this.drawing.layers.selected;
+    let selectedLayer = this.project.drawing.layers.selected;
     let clickedTile = selectedLayer.tileAt(x, y);
 
     if (!clickedTile)

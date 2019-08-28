@@ -8,24 +8,28 @@ let vueMethods = importFunctions();
 let app = new Vue({
     el: "#wrapper",
     data: {
-        drawing: null,
+        project: {
+            width: 10,
+            height: 10,
+            drawing: null,
+        },
         tools: {
             list: tools,
             selected: tools[0]
         }
     },
     watch: {
-        'drawing': {
+        'project.drawing': {
             handler: function() {
-                this.drawing.draw();
+                this.project.drawing.draw();
             }, deep: true
         }
     },
     mounted() {
-        this.drawing = new TileCanvas(this.$refs.mainCanvas);
+        this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.createLayer();
-        this.drawing.setZoom(50);
-        this.drawing.draw();
+        this.project.drawing.setZoom(50);
+        this.project.drawing.draw();
     },
     methods: vueMethods
 })
