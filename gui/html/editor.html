@@ -42,6 +42,12 @@
                                 <button @click="project.drawing.drawGrid = !project.drawing.drawGrid">{{project.drawing.drawGrid ? "Hide Grid" : "Show Grid"}}</button>
                             </div>
                         </div>
+                        <div v-if="project.drawing && project.drawing.layers.selected" class="mantra-property-category">
+                            <p>Layer</p>
+                            <div>
+                                <input type="text" placeholder="Layer Name...">
+                            </div>
+                        </div>
                         <div v-if="project.drawing && project.drawing.layers.selected.selectedTiles.length > 0" class="mantra-property-category">
                             <p>Selection ({{project.drawing.layers.selected.selectedTiles.length}})</p>
                             <div>
@@ -86,14 +92,26 @@
                             </div>
                         </div>
                     </div>
-                    <div id="properties">
+                    <div id="sidebar">
                         <div class="mantra-tab-container">
                             <header>
                                 <button class="mantra-tab-selected">Layers</button>
                                 <button>States</button>
                             </header>
-                            <div>
-
+                            <div id="layer-tab">
+                                <ul>
+                                    <li class="layer-list-item">
+                                        <p>Test</p>
+                                    </li>
+                                    <li class="layer-list-item">
+                                        <p>Test</p>
+                                    </li>
+                                </ul>
+                                <div id="layer-list-actions">
+                                    <button>New</button>
+                                    <button>Duplicate</button>
+                                    <button>Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>

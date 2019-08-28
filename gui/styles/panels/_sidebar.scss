@@ -1,0 +1,41 @@
+#sidebar {
+    grid-area: sidebar;
+    #layer-tab {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            justify-content: flex-end;
+            li {
+                color: white;
+                padding: .7rem 1rem;
+                font-size: .9rem;
+            }
+        }
+    }
+    #layer-list-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        border-top: 1px solid rgb(80, 80, 80);
+        button {
+            border: none;
+            background: none;
+            color: rgb(160, 160, 160);
+            padding: .3rem .5rem;
+            cursor: pointer;
+            &:nth-child(1) {
+                flex: 1;
+            }
+            &:hover {
+                background: $theme-color;
+                color: rgb(255, 255, 255);
+            }
+            &:active {
+                background: darken($theme-color, 10%);
+            }
+        }
+    }
+}
