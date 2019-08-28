@@ -29,10 +29,27 @@
                     </div>
                     <div id="mantra-app-properties">
                         <div class="mantra-property-category">
-                            <p>test</p>
+                            <p>Zoom</p>
                             <div>
-                                <button>test</button>
-                                <button>test</button>
+                                <button @click="zoom(5)">+</button>
+                                <div class="mantra-property-divider"></div>
+                                <button @click="zoom(-5)">-</button>
+                            </div>
+                        </div>
+                        <div v-if="drawing" class="mantra-property-category">
+                            <p>Grid</p>
+                            <div>
+                                <button @click="drawing.drawGrid = !drawing.drawGrid">{{drawing.drawGrid ? "Hide Grid" : "Show Grid"}}</button>
+                            </div>
+                        </div>
+                        <div v-if="drawing && drawing.layers.selected.selectedTiles.length > 0" class="mantra-property-category">
+                            <p>Selection ({{drawing.layers.selected.selectedTiles.length}})</p>
+                            <div>
+                                <button @click="fillTiles">Fill tiles (Debug)</button>
+                                <button @click="invertTileSelection">Invert</button>
+                                <button @click="drawing.layers.selected.deselectAll();">Deselect</button>
+                                <div class="mantra-property-divider"></div>
+                                <button @click="deleteSelectedTiles">Delete Tiles</button>
                             </div>
                         </div>
                     </div>
@@ -49,7 +66,7 @@
             <main>
                 <div id="panels">
                     <div id="tools">
-                        <button @click="selectAll" class="action-tool">
+                        <button @click="selectAllTiles" class="action-tool">
                             <img src="../images/select-all-icon.svg">
                             <p>Select All</p>
                         </button>

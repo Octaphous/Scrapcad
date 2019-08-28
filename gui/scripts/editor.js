@@ -3,8 +3,6 @@ const fs = require("fs");
 const mouseWheel = require("mouse-wheel");
 const tools = require("../scripts/tools.json");
 
-const canvas = document.querySelector("#main-canvas");
-
 let vueMethods = importFunctions();
 
 let app = new Vue({
@@ -32,6 +30,14 @@ let app = new Vue({
     methods: vueMethods
 })
 
+mouseWheel(app.$refs.mainCanvas.parentNode, (dx, dy) => {
+    if (dy > 0 && app.drawing.zoom > 0)
+        app.zoom(-2);
+
+    if (dy < 0)
+        app.zoom(2);
+}, true);
+
 function importFunctions() {
     let functions = {}
     let scripts = fs.readdirSync("./gui/scripts/vue");
@@ -43,13 +49,3 @@ function importFunctions() {
     })
     return functions;
 }
-
-mouseWheel(app.$refs.mainCanvas.parentNode, (dx, dy) => {
-    if (dy > 0 && app.drawing.zoom > 0)
-        app.drawing.setZoom(app.drawing.zoom - 2);
-
-    if (dy < 0)
-        app.drawing.setZoom(app.drawing.zoom + 2);
-
-    app.drawing.draw();
-}, true);

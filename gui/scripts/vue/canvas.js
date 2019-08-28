@@ -5,3 +5,7 @@ module.exports.canvasClickHandler = function (event) {
     
     this.runTool(this.tools.selected, mPosX, mPosY);
 }
+module.exports.zoom = function(level) {
+    this.drawing.setZoom(this.drawing.zoom + level);
+    this.drawing.draw();
+}
