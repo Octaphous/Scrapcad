@@ -59,6 +59,7 @@ class LayerCollection {
         layer._z = this.layers.length;
 
         if (!this.getLayerByZ(layer.z)) {
+            layer._collection = this;
             this.layers.push(layer);
             return layer;
         }
@@ -68,12 +69,21 @@ class LayerCollection {
 
         if (layerIndex != -1)
             this.layers.splice(layerIndex, 1);
+
+        this.sortZPositions();
     }
     get selected() {
         return this._selectedLayer;
     }
     getLayerByZ(z) {
         return this.layers.find(layer => layer.z == z);
+    }
+    sortZPositions() {
+        this.layers = this.layers.sort((a,b) => a.z - b.z);
+
+        for (let i = 0; i < this.layers.length; i++) {
+            this.layers[i]._z = i;
+        }
     }
     select(layer) {
         let layerIndex = this.layers.indexOf(layer);
@@ -97,6 +107,7 @@ class Layer {
         this._height = height;
         this._z = 0;
         this.name = name;
+        this._collection = null;
 
         this._selected = [];
     }
@@ -130,6 +141,29 @@ class Layer {
     }
     removeAt(x, y) {
         this.remove(this.tileAt(x, y));
+    }
+    resize(width, height) {
+        this._width = width;
+        this._height = height;
+
+        this.tiles = this.tiles.filter(tile => !(tile.x > width || tile.y > height));
+        this._selected = this._selected.filter(tile => !(tile.x > width || tile.y > height));
+
+        //Update canvas height and width
+        this._collection.select(this);
+    }
+    swapPosition(z) {
+        if (!this._collection.getLayerByZ(z) || z < 0) return;
+        let l = this._collection.getLayerByZ(z);
+        l._z = this._z;
+        this._z = z;
+        this._collection.sortZPositions();
+    }
+    moveUp() {
+        this.swapPosition(this._z + 1);
+    }
+    moveDown() {
+        this.swapPosition(this._z - 1);
     }
     tileAt(x, y) {
         return this.tiles.find(tile => tile.x == x && tile.y == y);
