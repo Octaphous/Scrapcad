@@ -229,7 +229,7 @@ class selectionTile {
         let lineWidth = 3, offset = lineWidth / 2;
 
         context.strokeStyle = "#0000FF";
-        context.fillStyle = "#77FFFFaa";
+        context.fillStyle = "#77FFFF55";
         context.lineWidth = lineWidth;
 
         context.fillRect(this._x * zoom, this._y * zoom, zoom, zoom);
