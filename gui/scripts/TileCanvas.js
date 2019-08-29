@@ -70,6 +70,7 @@ class LayerCollection {
         if (layerIndex != -1)
             this.layers.splice(layerIndex, 1);
 
+        this._selectedLayer = null;
         this.sortZPositions();
     }
     get selected() {
@@ -136,6 +137,15 @@ class Layer {
         tile._layer = this;
         this.tiles.push(tile);
         return tile;
+    }
+    duplicate(autoSelect = false) {
+        let duplicate = new Layer(this._width, this._height, this.name);
+        duplicate.tiles = this.tiles;
+        duplicate._selected = this._selected;
+
+        this._collection.add(duplicate);
+        if (autoSelect)
+            this._collection.select(duplicate);
     }
     remove(tile) {
         let tileIndex = this.tiles.indexOf(tile);
