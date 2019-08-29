@@ -3,17 +3,34 @@
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 15rem;
-    grid-template-columns: auto 1fr 20rem;
+    grid-template-columns: auto 1fr 18rem;
     grid-template-areas: 
     "tools editor sidebar"
-    "tools explorer explorer";
+    "explorer explorer explorer";
 
     > * {
-        border: 1px solid rgb(17, 17, 17);
+        border: 1px solid rgb(20, 20, 20);
     }
 
     @import 'panels/editor';
     @import 'panels/explorer';
     @import 'panels/sidebar';
     @import 'panels/tools';
+}
+
+::-webkit-scrollbar {
+    width: .7rem;
+    height: .7rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #646464;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $theme-color;
 }

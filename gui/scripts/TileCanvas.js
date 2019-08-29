@@ -91,8 +91,12 @@ class LayerCollection {
 
         this._selectedLayer = this.layers[layerIndex];
 
-        this.canvas.width = this._selectedLayer.width * this.canvas.zoom;
-        this.canvas.height = this._selectedLayer.height * this.canvas.zoom;
+        let c_width = this._selectedLayer.width * this.canvas.zoom;
+        let c_height = this._selectedLayer.height * this.canvas.zoom;
+        if (this.canvas.width == c_width && this.canvas.height == c_height) return;
+
+        this.canvas.width = c_width;
+        this.canvas.height = c_height;
     }
     draw(context, zoom) {
         if (this._selectedLayer)

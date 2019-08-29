@@ -18,6 +18,14 @@ let app = new Vue({
             selected: tools[0]
         }
     },
+    computed: {
+        hasDrawingLoaded() {
+            return this.project.drawing ? true : false;
+        },
+        isLayerSelected() {
+            return this.project.drawing.layers.selected ? true : false;
+        }
+    },
     watch: {
         'project.drawing': {
             handler: function() {
@@ -27,8 +35,8 @@ let app = new Vue({
     },
     mounted() {
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
-        this.createLayer();
         this.project.drawing.setZoom(50);
+        this.createLayer();
         this.project.drawing.draw();
     },
     methods: vueMethods

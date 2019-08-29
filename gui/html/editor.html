@@ -36,19 +36,19 @@
                                 <button @click="zoom(-5)">-</button>
                             </div>
                         </div>
-                        <div v-if="project.drawing" class="mantra-property-category">
+                        <div v-if="hasDrawingLoaded" class="mantra-property-category">
                             <p>Grid</p>
                             <div>
                                 <button @click="project.drawing.drawGrid = !project.drawing.drawGrid">{{project.drawing.drawGrid ? "Hide Grid" : "Show Grid"}}</button>
                             </div>
                         </div>
-                        <div v-if="project.drawing && project.drawing.layers.selected" class="mantra-property-category">
+                        <div v-if="hasDrawingLoaded && isLayerSelected" class="mantra-property-category">
                             <p>Layer</p>
                             <div>
-                                <input type="text" placeholder="Layer Name...">
+                                <input type="text" v-model="project.drawing.layers.selected.name" placeholder="Layer Name...">
                             </div>
                         </div>
-                        <div v-if="project.drawing && project.drawing.layers.selected.selectedTiles.length > 0" class="mantra-property-category">
+                        <div v-if="hasDrawingLoaded && project.drawing.layers.selected.selectedTiles.length > 0" class="mantra-property-category">
                             <p>Selection ({{project.drawing.layers.selected.selectedTiles.length}})</p>
                             <div>
                                 <button @click="fillTiles">Fill tiles (Debug)</button>
@@ -99,18 +99,18 @@
                                 <button>States</button>
                             </header>
                             <div id="layer-tab">
-                                <ul>
-                                    <li class="layer-list-item">
-                                        <p>Test</p>
-                                    </li>
-                                    <li class="layer-list-item">
-                                        <p>Test</p>
+                                <ul v-if="hasDrawingLoaded && isLayerSelected">
+                                    <li v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
+                                        <p class="layer-item-title">{{layer.name}}</p>
+                                        <p class="layer-item-info">{{layer.tiles.length}} Tiles<br/>Z Position: {{layer.z}}</p>
                                     </li>
                                 </ul>
                                 <div id="layer-list-actions">
-                                    <button>New</button>
-                                    <button>Duplicate</button>
-                                    <button>Delete</button>
+                                    <button @click="createLayer()"><img src="../images/layer-icon.svg">New Layer</button>
+                                    <button><img src="../images/layer-icon.svg">Duplicate Selected</button>
+                                    <button><img src="../images/layer-icon.svg">Delete Selected</button>
+                                    <button @click="project.drawing.layers.selected.moveUp()"><img src="../images/arrow-up.svg">Move Up</button>
+                                    <button @click="project.drawing.layers.selected.moveDown()"><img src="../images/arrow-up.svg" style="transform: rotate(180deg);">Move Down</button>
                                 </div>
                             </div>
                         </div>

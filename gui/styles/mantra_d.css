@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/*$theme-color: #0a7def;*/
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +29,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar {
-  background: #0863be;
+  background: #1868b8;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr auto auto auto;
@@ -66,15 +68,15 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:hover {
-  background: #0757a6;
+  background: #155ba1;
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:active {
-  background: #064a8d;
+  background: #124e8b;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar {
-  background: #0a7def;
+  background: #2181e2;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 1fr auto;
@@ -157,19 +159,19 @@ html, body, #wrapper {
   background: #e6e6e6;
   font-size: .75em;
   color: white;
-  background: #0a7def;
+  background: #2181e2;
   border: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-transition: border-color .5s ease;
   transition: border-color .5s ease;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:hover, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:hover {
-  background: #0863be;
+  background: #1868b8;
   border-color: transparent;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:active, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:active {
-  background: #064a8d;
+  background: #124e8b;
   border-color: transparent;
 }
 
@@ -198,7 +200,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:focus {
-  background: #064a8d;
+  background: #124e8b;
   border-color: transparent;
 }
 
@@ -224,11 +226,11 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:hover {
-  background: #0863be;
+  background: #1868b8;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:active {
-  background: #064a8d;
+  background: #124e8b;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button img {
@@ -238,7 +240,7 @@ html, body, #wrapper {
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu {
   background: white;
-  border: 1px solid #97c9fb;
+  border: 1px solid #a8cef4;
   position: absolute;
   right: .5rem;
   margin-top: .2rem;
@@ -313,12 +315,12 @@ html, body, #wrapper {
 }
 
 #wrapper > main .mantra-tab-container header button:hover {
-  background: #0a7def;
+  background: #2181e2;
   color: white;
 }
 
 #wrapper > main .mantra-tab-container header button:active, #wrapper > main .mantra-tab-container header button.mantra-tab-selected {
-  background: #0757a6;
+  background: #155ba1;
   color: white;
 }
 
@@ -329,13 +331,13 @@ html, body, #wrapper {
   display: grid;
   -ms-grid-rows: 1fr 15rem;
       grid-template-rows: 1fr 15rem;
-  -ms-grid-columns: auto 1fr 20rem;
-      grid-template-columns: auto 1fr 20rem;
-      grid-template-areas: "tools editor sidebar" "tools explorer explorer";
+  -ms-grid-columns: auto 1fr 18rem;
+      grid-template-columns: auto 1fr 18rem;
+      grid-template-areas: "tools editor sidebar" "explorer explorer explorer";
 }
 
 #panels > * {
-  border: 1px solid #111111;
+  border: 1px solid #141414;
 }
 
 #panels #editor {
@@ -363,13 +365,13 @@ html, body, #wrapper {
 }
 
 #panels #editor #view-2d #main-canvas {
-  border: 1px solid #0a7def;
+  border: 1px solid #2181e2;
 }
 
 #panels #explorer {
   -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: explorer;
 }
 
@@ -377,6 +379,7 @@ html, body, #wrapper {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: sidebar;
+  overflow: hidden;
 }
 
 #panels #sidebar #layer-tab {
@@ -384,6 +387,7 @@ html, body, #wrapper {
   display: grid;
   -ms-grid-rows: 1fr auto;
       grid-template-rows: 1fr auto;
+  overflow: hidden;
 }
 
 #panels #sidebar #layer-tab ul {
@@ -395,18 +399,48 @@ html, body, #wrapper {
       -ms-flex-direction: column;
           flex-direction: column;
   list-style: none;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  overflow: auto;
 }
 
 #panels #sidebar #layer-tab ul li {
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   color: white;
-  padding: .7rem 1rem;
+  padding: .5rem .8rem;
   font-size: .9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 
-#panels #sidebar #layer-list-actions {
+#panels #sidebar #layer-tab ul li:nth-child(1) {
+  margin-top: auto;
+  /* istället för justify-content: flex-end på ul pga scroll-bugg*/
+}
+
+#panels #sidebar #layer-tab ul li:hover {
+  border-color: #0f4174;
+}
+
+#panels #sidebar #layer-tab ul li:active {
+  border-color: #2181e2;
+}
+
+#panels #sidebar #layer-tab ul li.layer-selected {
+  background: #273543;
+  border-color: #2181e2;
+  color: white;
+}
+
+#panels #sidebar #layer-tab ul li .layer-item-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -414,38 +448,83 @@ html, body, #wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  border-top: 1px solid #505050;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: .3rem;
+  font-size: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1.5rem;
+}
+
+#panels #sidebar #layer-tab ul li .layer-item-title:before {
+  content: "";
+  background-image: url("../images/layer-icon.svg");
+  background-size: 1rem 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+  min-width: 1rem;
+}
+
+#panels #sidebar #layer-tab ul li .layer-item-info {
+  font-size: .7rem;
+  color: white;
+  opacity: .5;
+}
+
+#panels #sidebar #layer-list-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-top: 1px solid #323232;
 }
 
 #panels #sidebar #layer-list-actions button {
   border: none;
   background: none;
   color: #a0a0a0;
-  padding: .3rem .5rem;
+  padding: .3rem .6rem;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .75rem;
 }
 
-#panels #sidebar #layer-list-actions button:nth-child(1) {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+#panels #sidebar #layer-list-actions button img {
+  width: .8rem;
+  height: .8rem;
+  margin-right: .5rem;
 }
 
 #panels #sidebar #layer-list-actions button:hover {
-  background: #0a7def;
+  background: #2181e2;
   color: white;
 }
 
 #panels #sidebar #layer-list-actions button:active {
-  background: #0863be;
+  background: #1868b8;
 }
 
 #panels #tools {
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: tools;
   display: -webkit-box;
@@ -458,12 +537,11 @@ html, body, #wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .4rem;
 }
 
 #panels #tools button {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,12 +554,10 @@ html, body, #wrapper {
   border: none;
   background: none;
   cursor: pointer;
-  border-radius: .2rem;
-  margin-bottom: .4rem;
 }
 
 #panels #tools button:hover {
-  background: #0a7def;
+  background: #2181e2;
 }
 
 #panels #tools button:hover p {
@@ -490,7 +566,7 @@ html, body, #wrapper {
 }
 
 #panels #tools button:active {
-  background: #064a8d;
+  background: #124e8b;
 }
 
 #panels #tools button img {
@@ -503,7 +579,7 @@ html, body, #wrapper {
   opacity: 0;
   position: absolute;
   left: 3.5rem;
-  background: #0a7def;
+  background: #2181e2;
   color: #ffffff;
   padding: .5rem .8rem;
   display: -webkit-box;
@@ -533,10 +609,28 @@ html, body, #wrapper {
 }
 
 #panels #tools .action-tool {
-  background: #0a7def;
+  background: #2181e2;
 }
 
 #panels #tools .selection-tool.tool-selected {
-  background: #557da4;
+  background: #5381b0;
+  border: 1px solid white;
+}
+
+::-webkit-scrollbar {
+  width: .7rem;
+  height: .7rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #646464;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2181e2;
 }
 /*# sourceMappingURL=mantra_d.css.map */
