@@ -1,4 +1,6 @@
 module.exports.runTool = function(tool, x, y) {
+    if (!this.isLayerSelected) return;
+
     let functionName = tool.name.replace(" ", "");
     functionName = "tool_" + functionName.charAt(0).toLowerCase() + functionName.slice(1);
 

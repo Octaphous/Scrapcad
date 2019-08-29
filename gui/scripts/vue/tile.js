@@ -1,7 +1,9 @@
 module.exports.selectAllTiles = function() {
+    if (!this.isLayerSelected) return;
     this.project.drawing.layers.selected.selectAll();
 }
 module.exports.deleteSelectedTiles = function() {
+    if (!this.isLayerSelected) return;
     this.project.drawing.layers.selected.selectedTiles.forEach(tile => {
         this.project.drawing.layers.selected.removeAt(tile.x, tile.y);
     })
@@ -9,6 +11,7 @@ module.exports.deleteSelectedTiles = function() {
 
 //Testing function, remove later
 module.exports.fillTiles = function() {
+    if (!this.isLayerSelected) return;
     let selectedLayer = this.project.drawing.layers.selected;
 
     if (!selectedLayer) return;

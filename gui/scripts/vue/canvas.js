@@ -1,4 +1,5 @@
 module.exports.canvasClickHandler = function (event) {
+    if (!this.isLayerSelected) return;
     let canvas = this.$refs.mainCanvas;
     let mPosX = Math.floor((event.pageX - canvas.offsetLeft) / this.project.drawing.zoom);
     let mPosY = Math.floor((event.pageY - canvas.offsetTop) / this.project.drawing.zoom);

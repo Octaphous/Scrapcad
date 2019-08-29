@@ -364,10 +364,6 @@ html, body, #wrapper {
           align-items: center;
 }
 
-#panels #editor #view-2d #main-canvas {
-  border: 1px solid #2181e2;
-}
-
 #panels #explorer {
   -ms-grid-row: 2;
   -ms-grid-column: 1;

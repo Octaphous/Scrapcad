@@ -99,8 +99,8 @@
                                 <button>States</button>
                             </header>
                             <div id="layer-tab">
-                                <ul v-if="hasDrawingLoaded && isLayerSelected">
-                                    <li v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
+                                <ul v-if="hasDrawingLoaded">
+                                    <li v-if="isLayerSelected" v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
                                         <p class="layer-item-title">{{layer.name}}</p>
                                         <p class="layer-item-info">{{layer.tiles.length}} Tiles<br/>Z Position: {{layer.z}}</p>
                                     </li>
