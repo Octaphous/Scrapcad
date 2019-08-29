@@ -36,7 +36,7 @@ let app = new Vue({
     mounted() {
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.project.drawing.setZoom(50);
-        this.createLayer();
+        this.createLayer('Default Layer');
         this.project.drawing.draw();
     },
     methods: vueMethods
