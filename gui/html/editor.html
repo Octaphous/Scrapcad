@@ -102,7 +102,10 @@
                                 <ul v-if="hasDrawingLoaded">
                                     <li v-if="isLayerSelected" v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
                                         <p class="layer-item-title">{{layer.name}}</p>
-                                        <p class="layer-item-info">{{layer.tiles.length}} Tiles<br/>Z Position: {{layer.z}}</p>
+                                        <p class="layer-item-info">
+                                            {{layer.tiles.length}} Tiles ({{layer.selectedTiles.length}} selected)<br/>
+                                            Z Position: {{layer.z}}<br/>
+                                        </p>
                                     </li>
                                 </ul>
                                 <div id="layer-list-actions">
