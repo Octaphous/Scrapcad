@@ -100,7 +100,7 @@
                             </header>
                             <div id="layer-tab">
                                 <ul v-if="hasDrawingLoaded">
-                                    <li v-if="isLayerSelected" v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
+                                    <li v-for="layer in project.drawing.layers.layers" @click="project.drawing.layers.select(layer)" :class="{'layer-selected': project.drawing.layers.selected == layer}">
                                         <p class="layer-item-title">{{layer.name}}</p>
                                         <p class="layer-item-info">
                                             {{layer.tiles.length}} Tiles ({{layer.selectedTiles.length}} selected)<br/>
@@ -108,12 +108,27 @@
                                         </p>
                                     </li>
                                 </ul>
-                                <div id="layer-list-actions">
-                                    <button @click="createLayer()"><img src="../images/layer-icon.svg">New Layer</button>
-                                    <button @click="project.drawing.layers.selected.duplicate(true)"><img src="../images/layer-icon.svg">Duplicate Selected</button>
-                                    <button @click="project.drawing.layers.remove(project.drawing.layers.selected)"><img src="../images/layer-icon.svg">Delete Selected</button>
-                                    <button @click="project.drawing.layers.selected.moveUp()"><img src="../images/arrow-up.svg">Move Up</button>
-                                    <button @click="project.drawing.layers.selected.moveDown()"><img src="../images/arrow-up.svg" style="transform: rotate(180deg);">Move Down</button>
+                                <div id="layer-list-actions" v-if="hasDrawingLoaded">
+                                    <button @click="createLayer()">
+                                        <img src="../images/layer-icon.svg">
+                                        New Layer
+                                    </button>
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(true)">
+                                        <img src="../images/layer-icon.svg">
+                                        Duplicate Selected
+                                    </button>
+                                    <button v-if="isLayerSelected" @click="deleteLayer()">
+                                        <img src="../images/layer-icon.svg">
+                                        Delete Selected
+                                    </button>
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.moveUp()">
+                                        <img src="../images/arrow-up.svg">
+                                        Move Up
+                                    </button>
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.moveDown()">
+                                        <img src="../images/arrow-up.svg" style="transform: rotate(180deg);">
+                                        Move Down
+                                    </button>
                                 </div>
                             </div>
                         </div>
