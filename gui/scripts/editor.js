@@ -5,6 +5,11 @@ const tools = require("../scripts/tools.json");
 
 let vueMethods = importFunctions();
 
+/*
+TODO
+Flytta tools till plugin
+*/
+
 let app = new Vue({
     el: "#wrapper",
     data: {
@@ -12,6 +17,9 @@ let app = new Vue({
             width: 10,
             height: 10,
             drawing: null,
+        },
+        tabs: {
+
         },
         tools: {
             list: tools,
@@ -27,6 +35,7 @@ let app = new Vue({
         }
     },
     watch: {
+        //Draw everytime project.drawing changes
         'project.drawing': {
             handler: function() {
                 this.project.drawing.draw();
@@ -34,10 +43,10 @@ let app = new Vue({
         }
     },
     mounted() {
+        //Initialization
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.project.drawing.setZoom(50);
         this.createLayer('Default Layer');
-        this.project.drawing.draw();
     },
     methods: vueMethods
 })
