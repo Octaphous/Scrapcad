@@ -324,6 +324,10 @@ html, body, #wrapper {
   color: white;
 }
 
+[v-cloak] {
+  display: none !important;
+}
+
 #panels {
   background: #191919;
   height: 100%;
@@ -412,7 +416,6 @@ html, body, #wrapper {
   color: white;
   padding: .5rem .8rem;
   font-size: .9rem;
-  cursor: pointer;
   border: 1px solid transparent;
   overflow: hidden;
 }

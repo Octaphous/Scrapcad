@@ -61,6 +61,8 @@ class LayerCollection {
         if (!this.getLayerByZ(layer.z)) {
             layer._collection = this;
             this.layers.push(layer);
+
+            this.sortZPositions();
             return layer;
         }
     }
@@ -85,6 +87,7 @@ class LayerCollection {
         for (let i = 0; i < this.layers.length; i++) {
             this.layers[i]._z = i;
         }
+        this.layers.reverse()
     }
     select(layer) {
         let layerIndex = this.layers.indexOf(layer);
@@ -213,11 +216,11 @@ class Layer {
     invertAll() {
         for (let x = 0; x < this._width; x++) {
             for (let y = 0; y < this._height; y++) {
-                this.invertSelection(x, y);
+                this.invertSelectionAt(x, y);
             }
         }
     }
-    invertSelection(x, y) {
+    invertSelectionAt(x, y) {
         if (x != undefined && y != undefined) {
             if (!this.selectionAt(x, y))
                 this.selectAt(x, y);

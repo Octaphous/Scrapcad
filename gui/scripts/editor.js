@@ -13,6 +13,7 @@ Flytta tools till plugin
 let app = new Vue({
     el: "#wrapper",
     data: {
+        pluginCount: 0,
         project: {
             width: 10,
             height: 10,
@@ -47,6 +48,9 @@ let app = new Vue({
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.project.drawing.setZoom(50);
         this.createLayer('Default Layer');
+
+        //Run all plugins
+        this.loadPlugins();
     },
     methods: vueMethods
 })

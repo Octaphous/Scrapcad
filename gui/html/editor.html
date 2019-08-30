@@ -9,7 +9,7 @@
         <title>Scrapcad</title>
     </head>
     <body>
-        <div id="wrapper">
+        <div id="wrapper" v-cloak>
             <header id="mantra-app-header">
                 <div id="mantra-title-bar">
                     <p style="-webkit-app-region: drag;">Scrapcad</p>
@@ -136,7 +136,7 @@
                     <div id="explorer">
                         <div class="mantra-tab-container">
                             <header>
-                                <button class="mantra-tab-selected">Plugins</button>
+                                <button class="mantra-tab-selected">Plugins ({{pluginCount}} Loaded)</button>
                             </header>
                             <div>
 
