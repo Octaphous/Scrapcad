@@ -11,11 +11,16 @@ module.exports.deleteLayer = function(layer = this.project.drawing.layers.select
     if (!layer) return;
 
     let zPos = layer.z;
+    let layers = this.project.drawing.layers;
+    
     this.project.drawing.layers.remove(layer);
 
-    if (this.project.drawing.layers.getLayerByZ(zPos)) {
-        this.project.drawing.layers.select(
-            this.project.drawing.layers.getLayerByZ(zPos - 1)
-        );
+    if (layers.length != 0) {
+        if (layers.getLayerByZ(zPos)) {
+            layers.select(layers.getLayerByZ(zPos));
+        } else {
+            layers.select(layers.layers[0]);
+        }
     }
+    
 }

@@ -55,6 +55,9 @@ class LayerCollection {
         this.layers = [];
         this._selectedLayer = null;
     }
+    get length() {
+        return this.layers.length;
+    }
     add(layer) {
         layer._z = this.layers.length;
 
@@ -141,10 +144,11 @@ class Layer {
         this.tiles.push(tile);
         return tile;
     }
-    duplicate(autoSelect = false) {
+    duplicate(linked = false, autoSelect = false) {
         let duplicate = new Layer(this._width, this._height, this.name);
-        duplicate.tiles = this.tiles;
-        duplicate._selected = this._selected;
+
+        duplicate.tiles = linked ? this.tiles : this.tiles.slice(0);
+        duplicate._selected = linked ? this._selected : this._selected.slice(0);
 
         this._collection.add(duplicate);
         if (autoSelect)
@@ -211,7 +215,7 @@ class Layer {
         }
     }
     deselectAll() {
-        this._selected = [];
+        this._selected.splice(0, this._selected.length);
     }
     invertAll() {
         for (let x = 0; x < this._width; x++) {

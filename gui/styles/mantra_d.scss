@@ -1,5 +1,6 @@
 /*$theme-color: #0a7def;*/
 $theme-color: #2181e2;
+/*$theme-color: #c21733;*/
 
 * {
     margin: 0;
@@ -192,7 +193,7 @@ html, body, #wrapper {
             display: grid;
             height: 100%;
             grid-template-rows:  auto 1fr;
-            header {
+            > header {
                 display: flex;
                 flex-direction: row;
                 border-bottom: 1px solid rgb(35, 35, 35);

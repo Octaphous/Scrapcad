@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*$theme-color: #0a7def;*/
+/*$theme-color: #c21733;*/
 * {
   margin: 0;
   padding: 0;
@@ -295,7 +296,7 @@ html, body, #wrapper {
       grid-template-rows: auto 1fr;
 }
 
-#wrapper > main .mantra-tab-container header {
+#wrapper > main .mantra-tab-container > header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,7 +307,7 @@ html, body, #wrapper {
   border-bottom: 1px solid #232323;
 }
 
-#wrapper > main .mantra-tab-container header button {
+#wrapper > main .mantra-tab-container > header button {
   border: none;
   padding: .3rem .7rem;
   font-size: .7em;
@@ -314,12 +315,12 @@ html, body, #wrapper {
   color: #aaaaaa;
 }
 
-#wrapper > main .mantra-tab-container header button:hover {
+#wrapper > main .mantra-tab-container > header button:hover {
   background: #2181e2;
   color: white;
 }
 
-#wrapper > main .mantra-tab-container header button:active, #wrapper > main .mantra-tab-container header button.mantra-tab-selected {
+#wrapper > main .mantra-tab-container > header button:active, #wrapper > main .mantra-tab-container > header button.mantra-tab-selected {
   background: #155ba1;
   color: white;
 }
@@ -373,6 +374,192 @@ html, body, #wrapper {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: explorer;
+}
+
+#panels #explorer #plugin-tab ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+  list-style: none;
+  overflow: auto;
+}
+
+#panels #explorer #plugin-tab ul li {
+  margin-right: .3rem;
+  background: #212121;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+}
+
+#panels #explorer #plugin-tab ul li header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 0.2rem solid #7bb4ee;
+}
+
+#panels #explorer #plugin-tab ul li header .plugin-title {
+  font-size: .8rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .3rem 0;
+}
+
+#panels #explorer #plugin-tab ul li header .plugin-title::before {
+  content: "";
+  background: url("../images/plugin-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: .8rem .8rem;
+  width: .8rem;
+  height: .8rem;
+  margin: 0 .7rem;
+}
+
+#panels #explorer #plugin-tab ul li header button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  background: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+#panels #explorer #plugin-tab ul li header button:hover {
+  background: #2181e2;
+}
+
+#panels #explorer #plugin-tab ul li header button:active {
+  background: #1868b8;
+}
+
+#panels #explorer #plugin-tab ul li header button img {
+  width: .7rem;
+  height: .7rem;
+}
+
+#panels #explorer #plugin-tab ul li main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: .4rem 1rem;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-bottom: .8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row .plugin-property-name {
+  color: #bebebe;
+  font-size: .8rem;
+  padding-right: 2rem;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: .1rem;
+  border: none;
+  background: #464646;
+  color: white;
+  padding: .1rem 1.5rem;
+  font-size: .75rem;
+  text-align: center;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div > *:not(:last-child) {
+  margin-right: .2rem;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div button {
+  cursor: pointer;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div button:hover {
+  background: #2181e2;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div button:active {
+  background: #1868b8;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div button.plugin-property-selected {
+  background: #2181e2;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div input::-moz-selection {
+  background: black;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div input::selection {
+  background: black;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div input:hover {
+  background: #373737;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div input:active, #panels #explorer #plugin-tab ul li main .plugin-property-row div input:focus {
+  background: #2181e2;
 }
 
 #panels #sidebar {

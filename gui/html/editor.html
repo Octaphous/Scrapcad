@@ -113,9 +113,13 @@
                                         <img src="../images/layer-icon.svg">
                                         New Layer
                                     </button>
-                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(true)">
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(false, true)">
                                         <img src="../images/layer-icon.svg">
                                         Duplicate Selected
+                                    </button>
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(true, true)">
+                                        <img src="../images/link-icon.svg">
+                                        Create Linked Layer
                                     </button>
                                     <button v-if="isLayerSelected" @click="deleteLayer()">
                                         <img src="../images/layer-icon.svg">
@@ -138,8 +142,94 @@
                             <header>
                                 <button class="mantra-tab-selected">Plugins ({{pluginCount}} Loaded)</button>
                             </header>
-                            <div>
-
+                            <div id="plugin-tab">
+                                <ul>
+                                    <li>
+                                        <header>
+                                            <button>
+                                                <img src="../images/run-plugin-icon.svg">
+                                            </button>
+                                            <p class="plugin-title">Fill</p>
+                                        </header>
+                                        <main>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Fill Mode</p>
+                                                <div>
+                                                    <button class="plugin-property-selected">Selection</button>
+                                                    <button>Layer</button>
+                                                </div>
+                                            </div>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Color</p>
+                                                <div>
+                                                    <input type="text" value="#0000FF">
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </li>
+                                    <li>
+                                        <header>
+                                            <button>
+                                                <img src="../images/run-plugin-icon.svg">
+                                            </button>
+                                            <p class="plugin-title">PIXEL™ for ScrapCAD™</p>
+                                        </header>
+                                        <main>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">File Path</p>
+                                                <div>
+                                                    <input type="text" value="#0000FF">
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </li>
+                                    <li>
+                                        <header>
+                                            <button>
+                                                <img src="../images/run-plugin-icon.svg">
+                                            </button>
+                                            <p class="plugin-title">Random Colors</p>
+                                        </header>
+                                        <main>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Fill Mode</p>
+                                                <div>
+                                                    <button class="plugin-property-selected">Selection</button>
+                                                    <button>Layer</button>
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </li>
+                                    <li>
+                                        <header>
+                                            <button>
+                                                <img src="../images/run-plugin-icon.svg">
+                                            </button>
+                                            <p class="plugin-title">Scrap Mechanic Exporter</p>
+                                        </header>
+                                        <main>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Material</p>
+                                                <div>
+                                                    <button class="plugin-property-selected">Wood</button>
+                                                    <button>Metal</button>
+                                                </div>
+                                            </div>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Blueprint ID</p>
+                                                <div>
+                                                    <input type="text" value="#0000FF">
+                                                </div>
+                                            </div>
+                                            <div class="plugin-property-row">
+                                                <p class="plugin-property-name">Blueprint Name</p>
+                                                <div>
+                                                    <input type="text" value="#0000FF">
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

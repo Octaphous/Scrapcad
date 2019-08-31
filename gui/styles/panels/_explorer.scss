@@ -1,3 +1,123 @@
 #explorer {
     grid-area: explorer;
+
+    #plugin-tab {
+        ul {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            list-style: none;
+            overflow: auto;
+
+            li {
+                margin-right: .3rem;
+                background: #212121;
+                min-width: max-content;
+                min-height: max-content;
+                header {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    border-left: .2rem solid lighten($theme-color, 20%);
+                    
+                    .plugin-title {
+                        font-size: .8rem;
+                        color: white;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding: .3rem 0;
+
+                        &::before {
+                            content: "";
+                            background: url("../images/plugin-icon.svg");
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: .8rem .8rem;
+                            width: .8rem;
+                            height: .8rem;
+                            margin: 0 .7rem;
+                        }
+                    }
+                    button {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        background: none;
+                        width: 2rem;
+                        height: 2rem;
+                        cursor: pointer;
+                        &:hover {
+                            background: $theme-color;
+                        }
+                        &:active {
+                            background: darken($theme-color, 10%);
+                        }
+                        img {
+                            width: .7rem;
+                            height: .7rem;
+                        }
+                    }
+                }
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    padding: .4rem 1rem;
+                    .plugin-property-row {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        margin-bottom: .8rem;
+                        align-items: center;
+                        .plugin-property-name {
+                            color: rgb(190, 190, 190);
+                            font-size: .8rem;
+                            padding-right: 2rem;
+                        }
+                        div {
+                           display: flex;
+                           flex-direction: row;
+                           > * {
+                                flex: 1;
+                                border-radius: .1rem;
+                                border: none;
+                                background: rgb(70, 70, 70);
+                                color: white;
+                                padding: .1rem 1.5rem;
+                                font-size: .75rem;
+                                text-align: center;
+                                &:not(:last-child) {
+                                    margin-right: .2rem;
+                                }
+                           }
+                           button {
+                                cursor: pointer;
+                                &:hover {
+                                    background: $theme-color;
+                                }
+                                &:active {
+                                    background: darken($theme-color, 10%);
+                                }
+                                &.plugin-property-selected {
+                                    background: $theme-color;
+                                }
+                           }
+                           input {
+                                &::selection {
+                                    background: rgb(0, 0, 0);
+                                }
+                                &:hover {
+                                    background: rgb(55, 55, 55);
+                                }
+                                &:active, &:focus {
+                                    background: $theme-color;
+                                }
+                           }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
