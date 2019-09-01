@@ -1,7 +1,7 @@
-#editor {
-    grid-area: editor;
+#viewport {
+    grid-area: viewport;
     overflow: hidden;
-    #view-2d {
+    #editor-tab {
         background-image: url("../images/TransparentTile.png");
         background-size: .7rem .7rem;
         background-repeat: repeat;
@@ -11,5 +11,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    #preview-tab {
+        background: black;
+        height: 100%;
     }
 }

@@ -338,21 +338,21 @@ html, body, #wrapper {
       grid-template-rows: 1fr auto;
   -ms-grid-columns: auto 1fr 18rem;
       grid-template-columns: auto 1fr 18rem;
-      grid-template-areas: "tools editor sidebar" "explorer explorer explorer";
+      grid-template-areas: "tools viewport sidebar" "explorer explorer explorer";
 }
 
 #panels > * {
   border: 1px solid #141414;
 }
 
-#panels #editor {
+#panels #viewport {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
-  grid-area: editor;
+  grid-area: viewport;
   overflow: hidden;
 }
 
-#panels #editor #view-2d {
+#panels #viewport #editor-tab {
   background-image: url("../images/TransparentTile.png");
   background-size: .7rem .7rem;
   background-repeat: repeat;
@@ -367,6 +367,11 @@ html, body, #wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#panels #viewport #preview-tab {
+  background: black;
+  height: 100%;
 }
 
 #panels #explorer {

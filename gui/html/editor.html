@@ -66,7 +66,11 @@
                             <img src="../images/menu-icon.svg" alt="Menu">
                         </button>
                         <div id="mantra-menu">
-                            <button>New Project</button>
+                            <button @click="newProject">New Project</button>
+                            <button @click="saveProject">Save Project...</button>
+                            <button @click="openProject">Open Project...</button>
+                            <button v-if="false">Project Settings...</button>
+                            <button @click="closeApplication">Quit Scrapcad</button>
                         </div>
                     </div>
                 </div>
@@ -83,14 +87,21 @@
                             <p>{{tool.name}}</p>
                         </button>
                     </div>
-                    <div id="editor">
+                    <div id="viewport">
                         <div class="mantra-tab-container">
                             <header>
-                                <button class="mantra-tab-selected">Editor</button>
-                                <button>3D Preview</button>
+                                <button :class="{'mantra-tab-selected': tabs.viewport == 'editor'}" @click="tabs.viewport = 'editor'">
+                                    Editor
+                                </button>
+                                <button :class="{'mantra-tab-selected': tabs.viewport == 'preview'}" @click="tabs.viewport = 'preview'">
+                                    3D Preview
+                                </button>
                             </header>
-                            <div id="view-2d">
+                            <div v-show="tabs.viewport == 'editor'" id="editor-tab">
                                 <canvas @mousedown="canvasClickHandler" ref="mainCanvas" id="main-canvas"></canvas>
+                            </div>
+                            <div v-show="tabs.viewport == 'preview'" id="preview-tab">
+                                
                             </div>
                         </div>
                     </div>

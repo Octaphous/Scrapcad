@@ -6,14 +6,14 @@
     grid-template-rows: 1fr auto;
     grid-template-columns: auto 1fr 18rem;
     grid-template-areas: 
-    "tools editor sidebar"
+    "tools viewport sidebar"
     "explorer explorer explorer";
 
     > * {
         border: 1px solid rgb(20, 20, 20);
     }
 
-    @import 'panels/editor';
+    @import 'panels/viewport';
     @import 'panels/explorer';
     @import 'panels/sidebar';
     @import 'panels/tools';

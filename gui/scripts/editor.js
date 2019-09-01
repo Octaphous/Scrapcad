@@ -1,12 +1,20 @@
 const electron = require("electron");
 const fs = require("fs");
 const mouseWheel = require("mouse-wheel");
+const {dialog} = require("electron").remote;
+const path = require("path");
 
 let vueMethods = importFunctions();
 
 /*
-TODO
-Flytta tools till plugin
+TODO:
+- 3D-view
+- Color-picker
+- States
+- Save and open projects
+
+* Scrap Mechanic exporter
+* Image importer
 */
 
 let app = new Vue({
@@ -22,7 +30,9 @@ let app = new Vue({
             drawing: null,
         },
         tabs: {
-
+            viewport: "editor",
+            sidebar: "layers",
+            explorer: "plugins"
         },
         tools: {
             list: [],
