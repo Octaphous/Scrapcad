@@ -1,7 +1,7 @@
 instance.createTool(
     "Color Selection", 
     "colorSelection", 
-    _relPluginDir + "/icon.svg"
+    _plugindir + "/tool-icon.svg"
 );
 
 instance.tool_colorSelection = function(x, y, deselect) {

@@ -1,6 +1,5 @@
 #explorer {
     grid-area: explorer;
-
     #plugin-tab {
         ul {
             display: flex;
@@ -10,10 +9,14 @@
             overflow: auto;
 
             li {
+                max-height: 15rem;
+                overflow: hidden;
                 margin-right: .3rem;
                 background: #212121;
                 min-width: max-content;
                 min-height: max-content;
+                display: grid;
+                grid-template-rows: auto 1fr;
                 header {
                     display: flex;
                     flex-direction: row;
@@ -62,6 +65,7 @@
                     }
                 }
                 main {
+                    overflow: auto;
                     display: flex;
                     flex-direction: column;
                     padding: .4rem 1rem;
@@ -70,6 +74,7 @@
                         grid-template-columns: 1fr 1fr;
                         margin-bottom: .8rem;
                         align-items: center;
+                        min-height: max-content;
                         .plugin-property-name {
                             color: rgb(190, 190, 190);
                             font-size: .8rem;
@@ -104,6 +109,7 @@
                                 }
                            }
                            input {
+                                width: 5rem;
                                 &::selection {
                                     background: rgb(0, 0, 0);
                                 }

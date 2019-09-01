@@ -3,7 +3,7 @@
     background: rgb(25, 25, 25);
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr 15rem;
+    grid-template-rows: 1fr auto;
     grid-template-columns: auto 1fr 18rem;
     grid-template-areas: 
     "tools editor sidebar"

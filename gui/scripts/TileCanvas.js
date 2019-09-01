@@ -1,7 +1,6 @@
 //TODO:
 //Resize layers
 //Change layer order
-
 class TileCanvas {
     constructor(canvas) {
         this.canvas = canvas;
@@ -119,6 +118,7 @@ class Layer {
         this._z = 0;
         this.name = name;
         this._collection = null;
+        this._link = null;
 
         this._selected = [];
     }
@@ -130,6 +130,9 @@ class Layer {
     }
     get height() {
         return this._height;
+    }
+    get linkedLayer() {
+        return this._link;
     }
     add(tile, replace = false) {
         if (tile.x >= this._width || tile.y >= this._height) return;
@@ -150,9 +153,16 @@ class Layer {
         duplicate.tiles = linked ? this.tiles : this.tiles.slice(0);
         duplicate._selected = linked ? this._selected : this._selected.slice(0);
 
+        duplicate._link = linked ? this : null;
+
         this._collection.add(duplicate);
         if (autoSelect)
             this._collection.select(duplicate);
+    }
+    removeLink() {
+        this._link = null;
+        this.tiles = this.tiles.slice(0);
+        this._selected = this._selected.slice(0);
     }
     remove(tile) {
         let tileIndex = this.tiles.indexOf(tile);

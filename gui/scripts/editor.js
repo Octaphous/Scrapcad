@@ -1,7 +1,6 @@
 const electron = require("electron");
 const fs = require("fs");
 const mouseWheel = require("mouse-wheel");
-const tools = require("../scripts/tools.json");
 
 let vueMethods = importFunctions();
 
@@ -13,7 +12,10 @@ Flytta tools till plugin
 let app = new Vue({
     el: "#wrapper",
     data: {
-        pluginCount: 0,
+        plugins: {
+            count: 0,
+            dialogs: []
+        },
         project: {
             width: 10,
             height: 10,
@@ -23,8 +25,8 @@ let app = new Vue({
 
         },
         tools: {
-            list: tools,
-            selected: tools[0]
+            list: [],
+            selected: null
         }
     },
     computed: {
@@ -47,7 +49,6 @@ let app = new Vue({
         //Initialization
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.project.drawing.setZoom(50);
-        this.createLayer('Default Layer');
 
         //Run all plugins
         this.loadPlugins();

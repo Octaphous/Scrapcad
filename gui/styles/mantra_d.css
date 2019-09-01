@@ -334,8 +334,8 @@ html, body, #wrapper {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 15rem;
-      grid-template-rows: 1fr 15rem;
+  -ms-grid-rows: 1fr auto;
+      grid-template-rows: 1fr auto;
   -ms-grid-columns: auto 1fr 18rem;
       grid-template-columns: auto 1fr 18rem;
       grid-template-areas: "tools editor sidebar" "explorer explorer explorer";
@@ -390,6 +390,8 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li {
+  max-height: 15rem;
+  overflow: hidden;
   margin-right: .3rem;
   background: #212121;
   min-width: -webkit-max-content;
@@ -398,6 +400,10 @@ html, body, #wrapper {
   min-height: -webkit-max-content;
   min-height: -moz-max-content;
   min-height: max-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
 }
 
 #panels #explorer #plugin-tab ul li header {
@@ -476,6 +482,7 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li main {
+  overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,6 +502,9 @@ html, body, #wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row .plugin-property-name {
@@ -544,6 +554,10 @@ html, body, #wrapper {
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button.plugin-property-selected {
   background: #2181e2;
+}
+
+#panels #explorer #plugin-tab ul li main .plugin-property-row div input {
+  width: 5rem;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div input::-moz-selection {

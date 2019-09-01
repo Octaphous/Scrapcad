@@ -46,12 +46,14 @@
                             <p>Layer</p>
                             <div>
                                 <input type="text" v-model="project.drawing.layers.selected.name" placeholder="Layer Name...">
+                                <button v-if="project.drawing.layers.selected.linkedLayer" @click="project.drawing.layers.selected.removeLink()">
+                                    Break Link
+                                </button>
                             </div>
                         </div>
                         <div v-if="hasDrawingLoaded && isLayerSelected && project.drawing.layers.selected.selectedTiles.length > 0" class="mantra-property-category">
                             <p>Selection ({{project.drawing.layers.selected.selectedTiles.length}})</p>
                             <div>
-                                <button @click="fillTiles">Fill tiles (Debug)</button>
                                 <button @click="project.drawing.layers.selected.invertAll()">Invert</button>
                                 <button @click="project.drawing.layers.selected.deselectAll()">Deselect</button>
                                 <div class="mantra-property-divider"></div>
@@ -71,12 +73,12 @@
             </header>
             <main>
                 <div id="panels">
-                    <div id="tools">
+                    <div id="tools" v-if="hasDrawingLoaded && isLayerSelected">
                         <button @click="selectAllTiles" class="action-tool">
                             <img src="../images/select-all-icon.svg">
                             <p>Select All</p>
                         </button>
-                        <button v-for="tool in tools.list" @click="tools.selected = tool" :class="{'selection-tool': true, 'tool-selected': tools.selected.name == tool.name}">
+                        <button v-if="tools.list.length > 0" v-for="tool in tools.list" @click="tools.selected = tool" :class="{'selection-tool': true, 'tool-selected': tools.selected && tools.selected.name == tool.name}">
                             <img :src="tool.icon">
                             <p>{{tool.name}}</p>
                         </button>
@@ -105,6 +107,7 @@
                                         <p class="layer-item-info">
                                             {{layer.tiles.length}} Tiles ({{layer.selectedTiles.length}} selected)<br/>
                                             Z Position: {{layer.z}}<br/>
+                                            Link: {{layer.linkedLayer ? layer.linkedLayer.name : 'None'}}<br/>
                                         </p>
                                     </li>
                                 </ul>
@@ -117,7 +120,7 @@
                                         <img src="../images/layer-icon.svg">
                                         Duplicate Selected
                                     </button>
-                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(true, true)">
+                                    <button v-if="isLayerSelected" @click="project.drawing.layers.selected.duplicate(true, false)">
                                         <img src="../images/link-icon.svg">
                                         Create Linked Layer
                                     </button>
@@ -140,91 +143,27 @@
                     <div id="explorer">
                         <div class="mantra-tab-container">
                             <header>
-                                <button class="mantra-tab-selected">Plugins ({{pluginCount}} Loaded)</button>
+                                <button class="mantra-tab-selected">Plugins ({{plugins.count}} Loaded)</button>
                             </header>
                             <div id="plugin-tab">
                                 <ul>
-                                    <li>
+                                    <li v-for="dialog in plugins.dialogs">
                                         <header>
-                                            <button>
+                                            <button @click="runPluginDialog(dialog)">
                                                 <img src="../images/run-plugin-icon.svg">
                                             </button>
-                                            <p class="plugin-title">Fill</p>
+                                            <p class="plugin-title">{{dialog.title}}</p>
                                         </header>
                                         <main>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Fill Mode</p>
-                                                <div>
-                                                    <button class="plugin-property-selected">Selection</button>
-                                                    <button>Layer</button>
+                                            <div class="plugin-property-row" v-for="property in dialog.parameters">
+                                                <p class="plugin-property-name">{{property.title}}</p>
+                                                <div v-if="property.type == 'alternatives'">
+                                                    <button v-for="value in property.values" :class="{'plugin-property-selected': property.selected == value}" @click="property.selected = value">
+                                                        {{value}}
+                                                    </button>
                                                 </div>
-                                            </div>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Color</p>
-                                                <div>
-                                                    <input type="text" value="#0000FF">
-                                                </div>
-                                            </div>
-                                        </main>
-                                    </li>
-                                    <li>
-                                        <header>
-                                            <button>
-                                                <img src="../images/run-plugin-icon.svg">
-                                            </button>
-                                            <p class="plugin-title">PIXEL™ for ScrapCAD™</p>
-                                        </header>
-                                        <main>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">File Path</p>
-                                                <div>
-                                                    <input type="text" value="#0000FF">
-                                                </div>
-                                            </div>
-                                        </main>
-                                    </li>
-                                    <li>
-                                        <header>
-                                            <button>
-                                                <img src="../images/run-plugin-icon.svg">
-                                            </button>
-                                            <p class="plugin-title">Random Colors</p>
-                                        </header>
-                                        <main>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Fill Mode</p>
-                                                <div>
-                                                    <button class="plugin-property-selected">Selection</button>
-                                                    <button>Layer</button>
-                                                </div>
-                                            </div>
-                                        </main>
-                                    </li>
-                                    <li>
-                                        <header>
-                                            <button>
-                                                <img src="../images/run-plugin-icon.svg">
-                                            </button>
-                                            <p class="plugin-title">Scrap Mechanic Exporter</p>
-                                        </header>
-                                        <main>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Material</p>
-                                                <div>
-                                                    <button class="plugin-property-selected">Wood</button>
-                                                    <button>Metal</button>
-                                                </div>
-                                            </div>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Blueprint ID</p>
-                                                <div>
-                                                    <input type="text" value="#0000FF">
-                                                </div>
-                                            </div>
-                                            <div class="plugin-property-row">
-                                                <p class="plugin-property-name">Blueprint Name</p>
-                                                <div>
-                                                    <input type="text" value="#0000FF">
+                                                <div v-if="property.type == 'color-input'">
+                                                    <input type="text" v-for="(value, i) in property.values" v-model="property.values[i]">
                                                 </div>
                                             </div>
                                         </main>
