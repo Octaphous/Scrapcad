@@ -4,7 +4,7 @@
     height: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
-    grid-template-columns: auto 1fr 18rem;
+    grid-template-columns: auto 1fr auto;
     grid-template-areas: 
     "tools viewport sidebar"
     "explorer explorer explorer";

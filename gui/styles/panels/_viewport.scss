@@ -14,10 +14,35 @@
     }
     #preview-tab {
         height: 100%;
+        position: relative;
         #three-viewport {
             width: 100%;
             height: 100%;
-            background: linear-gradient(0deg, darken($theme-color, 40%), #000000);
+            background: linear-gradient(0deg, darken($theme-color, 20%), darken($theme-color, 40%));
+        }
+        button {
+            position: absolute;
+            border: .1rem solid rgb(255, 255, 255);
+            background: none;
+            border-radius: .5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            top: 1rem;
+            right: 1rem;
+            &:hover {
+                background: rgba(255, 255, 255, 0.5);
+            }
+            &:active {
+                background: rgba(255, 255, 255, 0.7);
+            }
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
         }
     }
 }

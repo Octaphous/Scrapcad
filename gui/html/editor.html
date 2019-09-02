@@ -102,6 +102,9 @@
                             </div>
                             <div v-show="tabs.viewport == 'preview'" id="preview-tab">
                                 <div id="three-viewport"></div>
+                                <button @click="build3DScene">
+                                    <img src="../images/plugin-icon.svg">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -151,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="explorer">
+                    <div id="explorer" id="plugin-tab">
                         <div class="mantra-tab-container">
                             <header>
                                 <button class="mantra-tab-selected">Plugins ({{plugins.count}} Loaded)</button>
@@ -190,6 +193,8 @@
             </main>
         </div>
     </body>
+    <script src="../scripts/three.min.js"></script>
+    <script src="../scripts/OrbitControls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="../scripts/TileCanvas.js"></script>
     <script src="../scripts/editor.js"></script>

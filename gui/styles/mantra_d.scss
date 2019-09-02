@@ -1,5 +1,6 @@
 /*$theme-color: #0a7def;*/
-$theme-color: #2181e2;
+/*$theme-color: #2181e2;*/
+$theme-color: #164feb;
 /*$theme-color: #c21733;*/
 
 * {
@@ -158,6 +159,7 @@ html, body, #wrapper {
                     background: rgb(255, 255, 255);
                     border: 1px solid lighten($theme-color, 30%);
                     position: absolute;
+                    z-index: 9999;
                     right: .5rem;
                     margin-top: .2rem;
                     overflow: auto;

@@ -1,6 +1,7 @@
 #sidebar {
     grid-area: sidebar;
     overflow: hidden;
+    width: 18rem;
     #layer-tab {
         display: grid;
         grid-template-rows: 1fr auto;

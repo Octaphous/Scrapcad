@@ -22,8 +22,8 @@ let app = new Vue({
     el: "#wrapper",
     data: {
         defaults: {
-            projectWidth: 32,
-            projectHeight: 32,
+            projectWidth: 16,
+            projectHeight: 16,
         },
         plugins: {
             count: 0,
@@ -69,6 +69,8 @@ let app = new Vue({
 
         //Run all plugins
         this.loadPlugins();
+
+        this.init3D();
     },
     methods: vueMethods
 })

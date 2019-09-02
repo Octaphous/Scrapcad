@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*$theme-color: #0a7def;*/
+/*$theme-color: #2181e2;*/
 /*$theme-color: #c21733;*/
 * {
   margin: 0;
@@ -30,7 +31,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar {
-  background: #1868b8;
+  background: #103fbe;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr auto auto auto;
@@ -69,15 +70,15 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:hover {
-  background: #155ba1;
+  background: #0e37a6;
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:active {
-  background: #124e8b;
+  background: #0c2f8f;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar {
-  background: #2181e2;
+  background: #164feb;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 1fr auto;
@@ -160,19 +161,19 @@ html, body, #wrapper {
   background: #e6e6e6;
   font-size: .75em;
   color: white;
-  background: #2181e2;
+  background: #164feb;
   border: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-transition: border-color .5s ease;
   transition: border-color .5s ease;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:hover, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:hover {
-  background: #1868b8;
+  background: #103fbe;
   border-color: transparent;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:active, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:active {
-  background: #124e8b;
+  background: #0c2f8f;
   border-color: transparent;
 }
 
@@ -201,7 +202,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:focus {
-  background: #124e8b;
+  background: #0c2f8f;
   border-color: transparent;
 }
 
@@ -227,11 +228,11 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:hover {
-  background: #1868b8;
+  background: #103fbe;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:active {
-  background: #124e8b;
+  background: #0c2f8f;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button img {
@@ -241,8 +242,9 @@ html, body, #wrapper {
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu {
   background: white;
-  border: 1px solid #a8cef4;
+  border: 1px solid #a3b9f7;
   position: absolute;
+  z-index: 9999;
   right: .5rem;
   margin-top: .2rem;
   overflow: auto;
@@ -316,12 +318,12 @@ html, body, #wrapper {
 }
 
 #wrapper > main .mantra-tab-container > header button:hover {
-  background: #2181e2;
+  background: #164feb;
   color: white;
 }
 
 #wrapper > main .mantra-tab-container > header button:active, #wrapper > main .mantra-tab-container > header button.mantra-tab-selected {
-  background: #155ba1;
+  background: #0e37a6;
   color: white;
 }
 
@@ -336,8 +338,8 @@ html, body, #wrapper {
   display: grid;
   -ms-grid-rows: 1fr auto;
       grid-template-rows: 1fr auto;
-  -ms-grid-columns: auto 1fr 18rem;
-      grid-template-columns: auto 1fr 18rem;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
       grid-template-areas: "tools viewport sidebar" "explorer explorer explorer";
 }
 
@@ -371,13 +373,48 @@ html, body, #wrapper {
 
 #panels #viewport #preview-tab {
   height: 100%;
+  position: relative;
 }
 
 #panels #viewport #preview-tab #three-viewport {
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#061b31), to(#000000));
-  background: linear-gradient(0deg, #061b31, #000000);
+  background: -webkit-gradient(linear, left bottom, left top, from(#0c2f8f), to(#041031));
+  background: linear-gradient(0deg, #0c2f8f, #041031);
+}
+
+#panels #viewport #preview-tab button {
+  position: absolute;
+  border: 0.1rem solid white;
+  background: none;
+  border-radius: .5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 1rem;
+  right: 1rem;
+}
+
+#panels #viewport #preview-tab button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#panels #viewport #preview-tab button:active {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+#panels #viewport #preview-tab button img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 #panels #explorer {
@@ -428,7 +465,7 @@ html, body, #wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-left: 0.2rem solid #7bb4ee;
+  border-left: 0.2rem solid #7496f3;
 }
 
 #panels #explorer #plugin-tab ul li header .plugin-title {
@@ -480,11 +517,11 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li header button:hover {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #explorer #plugin-tab ul li header button:active {
-  background: #1868b8;
+  background: #103fbe;
 }
 
 #panels #explorer #plugin-tab ul li header button img {
@@ -557,15 +594,15 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button:hover {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button:active {
-  background: #1868b8;
+  background: #103fbe;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button.plugin-property-selected {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div input {
@@ -585,7 +622,7 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div input:active, #panels #explorer #plugin-tab ul li main .plugin-property-row div input:focus {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #sidebar {
@@ -593,6 +630,7 @@ html, body, #wrapper {
   -ms-grid-column: 3;
   grid-area: sidebar;
   overflow: hidden;
+  width: 18rem;
 }
 
 #panels #sidebar #layer-tab {
@@ -639,16 +677,16 @@ html, body, #wrapper {
 }
 
 #panels #sidebar #layer-tab ul li:hover {
-  border-color: #0f4174;
+  border-color: #0a2777;
 }
 
 #panels #sidebar #layer-tab ul li:active {
-  border-color: #2181e2;
+  border-color: #164feb;
 }
 
 #panels #sidebar #layer-tab ul li.layer-selected {
-  background: #273543;
-  border-color: #2181e2;
+  background: #222c46;
+  border-color: #164feb;
   color: white;
 }
 
@@ -727,12 +765,12 @@ html, body, #wrapper {
 }
 
 #panels #sidebar #layer-list-actions button:hover {
-  background: #2181e2;
+  background: #164feb;
   color: white;
 }
 
 #panels #sidebar #layer-list-actions button:active {
-  background: #1868b8;
+  background: #103fbe;
 }
 
 #panels #tools {
@@ -769,7 +807,7 @@ html, body, #wrapper {
 }
 
 #panels #tools button:hover {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #tools button:hover p {
@@ -778,7 +816,7 @@ html, body, #wrapper {
 }
 
 #panels #tools button:active {
-  background: #124e8b;
+  background: #0c2f8f;
 }
 
 #panels #tools button img {
@@ -791,7 +829,7 @@ html, body, #wrapper {
   opacity: 0;
   position: absolute;
   left: 3.5rem;
-  background: #2181e2;
+  background: #164feb;
   color: #ffffff;
   padding: .5rem .8rem;
   display: -webkit-box;
@@ -821,11 +859,11 @@ html, body, #wrapper {
 }
 
 #panels #tools .action-tool {
-  background: #2181e2;
+  background: #164feb;
 }
 
 #panels #tools .selection-tool.tool-selected {
-  background: #5381b0;
+  background: #4967b8;
   border: 1px solid white;
 }
 
@@ -843,6 +881,6 @@ html, body, #wrapper {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2181e2;
+  background: #164feb;
 }
 /*# sourceMappingURL=mantra_d.css.map */
