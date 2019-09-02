@@ -9,10 +9,12 @@ const Jimp = require("jimp");
 let vueMethods = importFunctions();
 
 /*
+Scrapcad Voxel
 TODO:
 - 3D-view
 - Color-picker
 - States
+- Ortographic 3D
 
 * Scrap Mechanic exporter
 * Image importer

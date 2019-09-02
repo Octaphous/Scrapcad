@@ -6,7 +6,8 @@ module.exports.init3D = function() {
 
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
     renderer.setClearColor (0xffffff, 0);
-    
+    renderer.setPixelRatio(1);
+
     let previewViewport = document.getElementById("three-viewport");
     previewViewport.appendChild(renderer.domElement);
     
