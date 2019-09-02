@@ -370,8 +370,14 @@ html, body, #wrapper {
 }
 
 #panels #viewport #preview-tab {
-  background: black;
   height: 100%;
+}
+
+#panels #viewport #preview-tab #three-viewport {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#061b31), to(#000000));
+  background: linear-gradient(0deg, #061b31, #000000);
 }
 
 #panels #explorer {
@@ -547,6 +553,7 @@ html, body, #wrapper {
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button:hover {

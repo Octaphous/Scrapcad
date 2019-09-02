@@ -259,7 +259,7 @@ class Tile {
     constructor(x, y, color = "#000000") {
         this._x = x;
         this._y = y;
-        this.color = color;
+        this.color = validateHex(color) ? color : "#000000";
         this._layer = null;
     }
     get layer() {
@@ -291,6 +291,10 @@ class Tile {
         context.fillStyle = this.color;
         context.fillRect(startPosX, startPosY, tileSize, tileSize);
     }
+}
+
+function validateHex(hexcode) {
+    return /^#[0-9A-F]{6}$/i.test(hexcode);
 }
 
 class selectionTile {

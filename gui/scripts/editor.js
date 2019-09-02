@@ -1,8 +1,10 @@
 const electron = require("electron");
+const {dialog} = electron.remote;
+
 const fs = require("fs");
 const mouseWheel = require("mouse-wheel");
-const {dialog} = require("electron").remote;
 const path = require("path");
+const Jimp = require("jimp");
 
 let vueMethods = importFunctions();
 
@@ -11,7 +13,6 @@ TODO:
 - 3D-view
 - Color-picker
 - States
-- Save and open projects
 
 * Scrap Mechanic exporter
 * Image importer
@@ -20,13 +21,17 @@ TODO:
 let app = new Vue({
     el: "#wrapper",
     data: {
+        defaults: {
+            projectWidth: 32,
+            projectHeight: 32,
+        },
         plugins: {
             count: 0,
             dialogs: []
         },
         project: {
-            width: 10,
-            height: 10,
+            width: 0,
+            height: 0,
             drawing: null,
         },
         tabs: {
@@ -59,6 +64,8 @@ let app = new Vue({
         //Initialization
         this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
         this.project.drawing.setZoom(50);
+        this.changeProjectSize(this.defaults.projectWidth, this.defaults.projectHeight);
+        this.createLayer();
 
         //Run all plugins
         this.loadPlugins();

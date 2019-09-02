@@ -20,6 +20,7 @@
     "electron": "^6.0.4"
   },
   "dependencies": {
+    "jimp": "^0.6.4",
     "mouse-wheel": "^1.2.0",
     "uuid": "^3.3.3"
   }

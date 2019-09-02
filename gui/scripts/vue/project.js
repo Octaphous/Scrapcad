@@ -52,7 +52,7 @@ module.exports.openProject = function() {
     let dialogOptions = {
         title: "Open Project",
         defaultPath: defaultPath,
-        properties: ["openFile, openDirectory"],
+        properties: ["openFile"],
         filters: [
             { name: 'Scrapcad Project', extensions: ['scrcad'] },
         ]
@@ -98,7 +98,7 @@ module.exports.openProject = function() {
 }
 module.exports.newProject = function() {
     hideMenu();
-    this.changeProjectSize(10, 10);
+    this.changeProjectSize(this.defaults.projectWidth, this.defaults.projectHeight);
     this.project.drawing = new TileCanvas(this.$refs.mainCanvas);
 }
 module.exports.changeProjectSize = function(width, height) {
