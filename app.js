@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 
-function createWindow () {
+function createMainWindow () {
     let win = new BrowserWindow({
         frame: false,
         width: 1280,
@@ -16,4 +16,6 @@ function createWindow () {
     //win.setMenu(null);
 }
 
-app.on("ready", createWindow);
+app.on("ready", () => {
+    createMainWindow();
+});

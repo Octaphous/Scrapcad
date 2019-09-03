@@ -31,7 +31,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar {
-  background: #103fbe;
+  background: #074de6;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr auto auto auto;
@@ -70,15 +70,15 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:hover {
-  background: #0e37a6;
+  background: #053db4;
 }
 
 #wrapper #mantra-app-header #mantra-title-bar button:active {
-  background: #0c2f8f;
+  background: #05349b;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar {
-  background: #164feb;
+  background: #0e58f8;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 1fr auto;
@@ -161,19 +161,19 @@ html, body, #wrapper {
   background: #e6e6e6;
   font-size: .75em;
   color: white;
-  background: #164feb;
+  background: #0e58f8;
   border: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-transition: border-color .5s ease;
   transition: border-color .5s ease;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:hover, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:hover {
-  background: #103fbe;
+  background: #0645cd;
   border-color: transparent;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:active, #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties button:active {
-  background: #0c2f8f;
+  background: #05349b;
   border-color: transparent;
 }
 
@@ -202,7 +202,7 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-app-properties input:focus {
-  background: #0c2f8f;
+  background: #05349b;
   border-color: transparent;
 }
 
@@ -228,11 +228,11 @@ html, body, #wrapper {
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:hover {
-  background: #103fbe;
+  background: #0645cd;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button:active {
-  background: #0c2f8f;
+  background: #05349b;
 }
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section button img {
@@ -242,7 +242,7 @@ html, body, #wrapper {
 
 #wrapper #mantra-app-header #mantra-header-bar #mantra-menu-section #mantra-menu {
   background: white;
-  border: 1px solid #a3b9f7;
+  border: 1px solid #a3bffc;
   position: absolute;
   z-index: 9999;
   right: .5rem;
@@ -318,12 +318,12 @@ html, body, #wrapper {
 }
 
 #wrapper > main .mantra-tab-container > header button:hover {
-  background: #164feb;
+  background: #0e58f8;
   color: white;
 }
 
 #wrapper > main .mantra-tab-container > header button:active, #wrapper > main .mantra-tab-container > header button.mantra-tab-selected {
-  background: #0e37a6;
+  background: #053db4;
   color: white;
 }
 
@@ -372,15 +372,18 @@ html, body, #wrapper {
 }
 
 #panels #viewport #preview-tab {
-  height: 100%;
   position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #panels #viewport #preview-tab #three-viewport {
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#0c2f8f), to(#041031));
-  background: linear-gradient(0deg, #0c2f8f, #041031);
+  background: -webkit-gradient(linear, left bottom, left top, from(#05349b), to(#021338));
+  background: linear-gradient(0deg, #05349b, #021338);
   line-height: 0px;
 }
 
@@ -466,7 +469,7 @@ html, body, #wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-left: 0.2rem solid #7496f3;
+  border-left: 0.2rem solid #719dfb;
 }
 
 #panels #explorer #plugin-tab ul li header .plugin-title {
@@ -518,11 +521,11 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li header button:hover {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #explorer #plugin-tab ul li header button:active {
-  background: #103fbe;
+  background: #0645cd;
 }
 
 #panels #explorer #plugin-tab ul li header button img {
@@ -595,15 +598,15 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button:hover {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button:active {
-  background: #103fbe;
+  background: #0645cd;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div button.plugin-property-selected {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div input {
@@ -623,7 +626,7 @@ html, body, #wrapper {
 }
 
 #panels #explorer #plugin-tab ul li main .plugin-property-row div input:active, #panels #explorer #plugin-tab ul li main .plugin-property-row div input:focus {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #sidebar {
@@ -678,16 +681,16 @@ html, body, #wrapper {
 }
 
 #panels #sidebar #layer-tab ul li:hover {
-  border-color: #0a2777;
+  border-color: #042c83;
 }
 
 #panels #sidebar #layer-tab ul li:active {
-  border-color: #164feb;
+  border-color: #0e58f8;
 }
 
 #panels #sidebar #layer-tab ul li.layer-selected {
-  background: #222c46;
-  border-color: #164feb;
+  background: #1e2e4f;
+  border-color: #0e58f8;
   color: white;
 }
 
@@ -766,12 +769,12 @@ html, body, #wrapper {
 }
 
 #panels #sidebar #layer-list-actions button:hover {
-  background: #164feb;
+  background: #0e58f8;
   color: white;
 }
 
 #panels #sidebar #layer-list-actions button:active {
-  background: #103fbe;
+  background: #0645cd;
 }
 
 #panels #tools {
@@ -808,7 +811,7 @@ html, body, #wrapper {
 }
 
 #panels #tools button:hover {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #tools button:hover p {
@@ -817,7 +820,7 @@ html, body, #wrapper {
 }
 
 #panels #tools button:active {
-  background: #0c2f8f;
+  background: #05349b;
 }
 
 #panels #tools button img {
@@ -830,9 +833,10 @@ html, body, #wrapper {
   opacity: 0;
   position: absolute;
   left: 3.5rem;
-  background: #164feb;
+  background: #0e58f8;
   color: #ffffff;
   padding: .5rem .8rem;
+  z-index: 999;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -860,11 +864,11 @@ html, body, #wrapper {
 }
 
 #panels #tools .action-tool {
-  background: #164feb;
+  background: #0e58f8;
 }
 
 #panels #tools .selection-tool.tool-selected {
-  background: #4967b8;
+  background: #406ac6;
   border: 1px solid white;
 }
 
@@ -882,6 +886,6 @@ html, body, #wrapper {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #164feb;
+  background: #0e58f8;
 }
 /*# sourceMappingURL=mantra_d.css.map */

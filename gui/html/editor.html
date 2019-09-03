@@ -6,13 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../styles/mantra_d.css">
-        <title>Scrapcad</title>
+        <title>ScrapCAD</title>
     </head>
     <body>
         <div id="wrapper" v-cloak>
             <header id="mantra-app-header">
                 <div id="mantra-title-bar">
-                    <p style="-webkit-app-region: drag;">Scrapcad</p>
+                    <p style="-webkit-app-region: drag;">ScrapCAD</p>
                     <button @click="minimize">
                         <img src="../images/minimize-button.svg" alt="Minimize">
                     </button>
@@ -34,6 +34,14 @@
                                 <button @click="zoom(5)">+</button>
                                 <div class="mantra-property-divider"></div>
                                 <button @click="zoom(-5)">-</button>
+                            </div>
+                        </div>
+                        <div class="mantra-property-category">
+                            <p>Project</p>
+                            <div>
+                                <input type="text" v-model.number="prefs.pWidth" placeholder="Width...">
+                                <input type="text" v-model.number="prefs.pHeight" placeholder="Height...">
+                                <button @click="changeProjectSize(prefs.pWidth, prefs.pHeight)">Apply</button>
                             </div>
                         </div>
                         <div v-if="hasDrawingLoaded" class="mantra-property-category">
@@ -69,8 +77,7 @@
                             <button @click="newProject">New Project</button>
                             <button @click="saveProject">Save Project...</button>
                             <button @click="openProject">Open Project...</button>
-                            <button v-if="false">Project Settings...</button>
-                            <button @click="closeApplication">Quit Scrapcad</button>
+                            <button @click="closeApplication">Quit ScrapCAD</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +119,6 @@
                         <div class="mantra-tab-container">
                             <header>
                                 <button class="mantra-tab-selected">Layers</button>
-                                <button>States</button>
                             </header>
                             <div id="layer-tab">
                                 <ul v-if="hasDrawingLoaded">
@@ -121,7 +127,7 @@
                                         <p class="layer-item-info">
                                             {{layer.tiles.length}} Tiles ({{layer.selectedTiles.length}} selected)<br/>
                                             Z Position: {{layer.z}}<br/>
-                                            Link: {{layer.linkedLayer ? layer.linkedLayer.name : 'None'}}<br/>
+                                            Link: {{layer.linkedLayer ? layer.linkedLayer.name : 'None'}}
                                         </p>
                                     </li>
                                 </ul>

@@ -1,6 +1,6 @@
 /*$theme-color: #0a7def;*/
 /*$theme-color: #2181e2;*/
-$theme-color: #164feb;
+$theme-color: #0e58f8;
 /*$theme-color: #c21733;*/
 
 * {
@@ -24,7 +24,7 @@ html, body, #wrapper {
 
     #mantra-app-header {
         #mantra-title-bar {
-            background: darken($theme-color, 10%);
+            background: darken($theme-color, 5%);
             display: grid;
             grid-template-columns: 1fr auto auto auto;
             align-items: center;

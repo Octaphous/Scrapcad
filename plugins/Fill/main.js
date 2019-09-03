@@ -8,7 +8,7 @@ instance.pluginDialog("Fill", "fill", [
     {
         title: "Color",
         type: "color-input",
-        values: ["#0000FF"]
+        values: ["#FFFFFF"]
     }
 ]);
 
@@ -16,7 +16,7 @@ instance.plugin_fill = function(parameters) {
     let fillMode = parameters[0].selected;
     let color = parameters[1].values[0];
  
-    let layer = drawing.layers.selected;
+    let layer = instance.project.drawing.layers.selected;
     if (!layer) return;
 
     for (let x = 0; x < layer.width; x++) {

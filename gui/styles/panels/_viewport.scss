@@ -13,8 +13,9 @@
         align-items: center;
     }
     #preview-tab {
-        height: 100%;
         position: relative;
+        overflow: hidden;
+        display: flex;
         #three-viewport {
             width: 100%;
             height: 100%;

@@ -47,9 +47,8 @@ module.exports.build3DScene = function() {
         for (let x = 0; x < currentLayer.width; x++) {
             for (let y = 0; y < currentLayer.height; y++) {
                 let tileAtPos = currentLayer.tileAt(x, y);
-                
                 if (tileAtPos) {
-                    create3DCube(x - offset, y - offset, currentLayer.z, tileAtPos.color);
+                    create3DCube(x - offset, y - offset, currentLayer.z, parseInt("0x" + tileAtPos.color.slice(1), 16));
                 }
             } 
         }
@@ -77,7 +76,7 @@ function create3DCube(x, y, z, color) {
     if (!scene) return;
 
     let geometry = new THREE.BoxGeometry(1, 1, 1);
-    let material = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+    let material = new THREE.MeshLambertMaterial({color: color});
     let cube = new THREE.Mesh(geometry, material);
     cube.position.x = x;
     cube.position.z = y;

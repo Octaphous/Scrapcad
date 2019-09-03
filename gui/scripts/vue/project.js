@@ -104,8 +104,8 @@ module.exports.newProject = function() {
 module.exports.changeProjectSize = function(width, height) {
     if (!(width > 0 && height > 0)) return;
 
-    this.project.width = width;
-    this.project.height = height;
+    this.project.width = this.prefs.pWidth = width;
+    this.project.height = this.prefs.pHeight = height;
 
     //Update layer sizes
     let layers = this.project.drawing.layers.layers;

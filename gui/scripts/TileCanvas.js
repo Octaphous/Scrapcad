@@ -177,8 +177,8 @@ class Layer {
         this._width = width;
         this._height = height;
 
-        this.tiles = this.tiles.filter(tile => !(tile.x > width || tile.y > height));
-        this._selected = this._selected.filter(tile => !(tile.x > width || tile.y > height));
+        this.tiles = this.tiles.filter(tile => !(tile.x >= width || tile.y >= height));
+        this._selected = this._selected.filter(tile => !(tile.x >= width || tile.y >= height));
 
         //Update canvas height and width
         this._collection.select(this);
@@ -205,10 +205,12 @@ class Layer {
     selectAt(x, y) {
         if (x >= this._width || y >= this._height) return;
         if (this._selected.find(tile => tile.x == x && tile.y == y)) return;
-
+        console.log("selecting..");
+        
         this._selected.push(new selectionTile(x, y));
     }
     deselectAt(x, y) {
+        console.log("deselecting..");
         let tileToDeselect = this._selected.find(tile => tile.x == x && tile.y == y);
         if (!tileToDeselect) return;
 

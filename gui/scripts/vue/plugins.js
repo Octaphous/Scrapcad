@@ -3,12 +3,12 @@ module.exports.loadPlugins = function() {
 
     pluginFolders.forEach(plugin => {
         let pluginCode = fs.readFileSync("./plugins/" + plugin + "/main.js");
-        let pluginFunction = new Function("instance", "_plugindir", "drawing", pluginCode);
+        let pluginFunction = new Function("instance", "_plugindir", pluginCode);
         
         //instance = vue instance
         //_relPluginDir = plugin directory
 
-        pluginFunction(this, "../../plugins/" + plugin, this.project.drawing);
+        pluginFunction(this, "../../plugins/" + plugin);
     })
 
     this.plugins.count = pluginFolders.length;

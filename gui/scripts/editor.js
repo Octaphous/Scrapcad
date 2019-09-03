@@ -44,6 +44,10 @@ let app = new Vue({
         tools: {
             list: [],
             selected: null
+        },
+        prefs: {
+            pWidth: 0,
+            pHeight: 0
         }
     },
     computed: {
@@ -68,7 +72,10 @@ let app = new Vue({
         this.project.drawing.setZoom(50);
         this.changeProjectSize(this.defaults.projectWidth, this.defaults.projectHeight);
         this.createLayer();
-
+        
+        this.prefs.pWidth = this.project.width;
+        this.prefs.pHeight = this.project.height;
+        
         //Run all plugins
         this.loadPlugins();
 
